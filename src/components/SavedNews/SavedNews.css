@@ -1,0 +1,17 @@
+.saved-news__section {
+background-color: white;
+/* top: 80px; */
+overflow: auto;
+/* position: relative; */
+/* background-color: transparent; */
+}
+
+.saved-news__container {
+  background-color: rgba(245, 246, 247, 1);
+  background-size: cover;
+  background-color: transparent;
+}
+
+.cards-list__grid {
+  background-size: cover;
+}

@@ -1,0 +1,126 @@
+/* .footer {
+  height: 80px;
+} */
+
+.footer__section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding-top: 32px;
+  padding-bottom: 26px;
+  /* position: relative; */
+  box-sizing: border-box;
+  height: 80px;
+}
+
+.footer__copyright {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+  margin: 0;
+}
+
+.footer__items {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  list-style: none; 
+}
+
+.footer__links {
+ display: flex;
+ justify-content: space-between;
+ min-width: 304px;
+ max-width: 264px;
+ margin: 0;
+ padding: 0;
+}
+
+.footer__link {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1A1B22;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.footer__link-last {
+  margin-right: 40px;
+}
+
+.footer__social-items {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  min-width: 68px;
+}
+
+.footer__social-icon {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+  /* .footer {
+   height: 64px;
+  }
+   */
+  .footer__section {
+    max-width: 688px;
+    height: 64px;
+  }
+
+  .footer__links {
+    display: flex;
+    justify-content: space-between;
+    /* min-width: 304px; */
+    min-width: 264px;
+   }
+   
+  .footer__link-last {
+    margin-right: 24px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* .footer {
+    height: 176px;
+   } */
+
+  .footer__section {
+    flex-direction: column-reverse;
+    max-width: 420px;
+    height: 176px;
+    margin: 0 auto; 
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    height: 74px;
+    min-width: 200px;
+   }
+
+   .footer__link-last {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer__section {
+    max-width: 288px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .footer__links {
+    margin: 0 auto;
+   }
+}
