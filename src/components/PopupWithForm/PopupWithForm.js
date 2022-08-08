@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 import './PopupWithForm.css';
 
 const PopupWithForm = (props) => {
-  const { name, isOpen, popupTitle, children, onClose } = props;
+  const { name, isOpen, popupTitle, children, onSubmit, onClose, onOutsideClick } = props;
 
   // name - signin / signup
 
   return(
-    <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} >
-      <div className='popup__window'>
+    <div onClick={onOutsideClick} className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} >
+      <div className='popup__window' >
         <h2 className='popup__title'>{popupTitle}</h2>
         <form
           className='popup__form'
           name={name}
-          // onSubmit = {onSubmit}
+          onSubmit = {onSubmit}
           noValidate
         >
           {children}

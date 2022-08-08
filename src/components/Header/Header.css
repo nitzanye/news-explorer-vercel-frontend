@@ -1,78 +1,140 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  width: 100%;
-  max-width: 1232px;
-  box-sizing: border-box;
-  height: 0;
-  margin: 0 auto;
-  padding: 0;
-  z-index: 100;
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.2) inset;
-
-}
-
-/* from previouse project 
-.header {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: rgba(84, 84, 84, 70%) 1px solid;
-  max-width: 880px;
-  width: 100%;
-  padding-top: 45px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-@media screen and (max-width: 765px) {
-  .header {
-    padding-top: 28px;
-  }
-}
-*/
-
- /* border-bottom: 80px;  */
-
-/* .header::before {
-  border: rgba(196, 196, 196, 0.01) solid;
- 
-  box-shadow: 0px -1px 0px 0px #FFFFFF33 inset;
-  background-size: cover;
   height: 80px;
-} */
+  background: rgba(196, 196, 196, 0.01);
+  box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.2);
+  align-self: center;
+  z-index: 200;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 108px;
+  z-index: 23;
+}
+
+.header__content_light {
+  background: #FFFFFF;
+}
 
 .header__logo {
   font-family: 'Roboto Slab';
   font-weight: 700;
   font-size: 20px;
+  line-height: 24px;
+  box-sizing: border-box;
   display: block;
   padding: 0;
   margin: 0;
-  margin-top: 30px;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .header__logo_light {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(26, 27, 34, 1);
+  z-index: 3;
 }
 
 .header__logo_dark {
-  color: rgba(26, 27, 34, 1);
+  color: rgba(255, 255, 255, 1);
+  z-index: 3;
+}
+
+.header__menu {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .header__content {
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header__content {
+    margin: 0 16px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .overlay {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow-x: hidden;
+      display: none;
+  }
+  
+  .overlay-visible {
+    display: block;
+  }
+  
+  .header__content {
+    position: relative;
+    /* background: #1a1b22; */
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px 16px;
+  }
+
+  .header__content_light {
+    background: #FFFFFF;
+  }
+
+  .header__content_dark {
+    background: #1a1b22;
+  }
+
+  .header__logo {
+    margin-top: 16px;
+  }
+
+  .header__menu {
+    display: block;
+    height: 24px;
+    width: 24px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 20;
+  }
+
+  .header__menu_light {
+    background-image: url(../../images/menuLight.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+  }
+  
+  .header__menu_dark {
+    background-image: url(../../images/menuDark.svg);
+    background-color: transparent;
+  }
+
+  .header__close {
+    background-image: url(../../images/closeMobileIcon.svg); 
+    background-color: transparent;
+  }
+}
+
+.header__close_dark {
+  background-image: url(../../images/closeMobileIcon.svg);
+  background-color: black;
+  background-position: center;
+  width: 23px;
+  height: 23px; 
+  border-radius: 100px;
+  opacity: 70%;
 }
 
 
-
-/* @media screen and (max-width: 765px) {
-  .header {
-    padding-top: 22px;
-    padding-bottom: 20px;
+@media screen and (max-width: 520px) {
+  .header_hidden {
+    visibility: hidden;
   }
-} */
-
-@media screen and (max-width: 400px) {
-  .header {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-} 
+}

@@ -9,6 +9,9 @@ import Login from '../Login/Login';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Register from '../Register/Register';
 import './App.css';
+import About from '../About/About';
+import NewsCardList from '../NewsCardList/NewsCardList';
+import SearchForm from '../SearchForm/SearchForm';
 // import SearchForm from '../SearchForm/SearchForm';
 
 // The root component of the application, created by CRA
@@ -17,11 +20,22 @@ import './App.css';
 
 const App = () => {
 
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = React.useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
+  // const [cardListOpen, setCardListOpen] = React.useEffect(false);
+
+  const [searchSubmit, setSearchSubmit] = React.useState(false);
+ 
+ 
+  // const [textField, setTextField] = React.useState('');
+
+  const handleSearchSubmit = () => {
+    setSearchSubmit(true);
+
+  }
 
   const navigate = useNavigate();
   
@@ -30,13 +44,23 @@ const App = () => {
       return console.log('Error.....');
     }
     setLoggedIn(true);
+
+    closeAllPopups();
+  }
+
+  const popupOpened = isLoginPopupOpen || isRegisterPopupOpen || isInfoTooltipOpen;
+  
+  const handleLogin = () => {
+     closeAllPopups();
+     setIsLoginPopupOpen(true);
   }
   
   const handleUserRegister = (email, password, username) => {
     if (!email || !password || !username) {
       return console.log('Error.....');
     }
-    setLoggedIn(true);
+    // setLoggedIn(true);
+    closeAllPopups();
     setIsInfoTooltipOpen(true);
   };
 
@@ -51,27 +75,33 @@ const App = () => {
     setIsInfoTooltipOpen(false);
   };
 
-  React.useEffect(() => {
-    const handleClickOutside = (evt) => {
-      if (evt.target.classList.contains('popup_opened')) {
-        closeAllPopups();
-      }
-    };
+  const handleClickOutside = (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closeAllPopups();
+    }
+  };
 
+  React.useEffect(() => {
     const handleEscape = (evt) => {
       if (evt.key === 'Escape') {
         closeAllPopups();
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
+    
+    // popupOpened && document.addEventListener('click', handleClickOutside);
+    popupOpened && document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      // document.removeEventListener('click', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, []);
+  }, [popupOpened]);
+
+  const switchPopup = () => {
+    setIsLoginPopupOpen(!isLoginPopupOpen);
+    setIsRegisterPopupOpen(!isRegisterPopupOpen);
+  }
 
   return (
     <div className='page'>
@@ -82,12 +112,18 @@ const App = () => {
             <>
               <Header 
                 loggedIn={loggedIn}
+                onLogin={handleLogin}
+                onLogout={handleLogOut}
+                onRegister={handleUserRegister}
+                popupOpened={popupOpened}
+               
               />
-              <Main 
-              
-              />
+              <Main onSubmit={handleSearchSubmit} />
+
+              {searchSubmit && <NewsCardList loggedIn={loggedIn}/>}
+              <About />
             </>
-          }
+        }
         >
         </Route>
         <Route
@@ -96,7 +132,8 @@ const App = () => {
             <>
               <Header 
                 loggedIn={loggedIn}
-                handleLogOut={handleLogOut}
+                onLogin={handleLogin}
+                onLogout={handleLogOut}
               />
               <SavedNews />
             </>
@@ -110,6 +147,8 @@ const App = () => {
         loggedIn={loggedIn} 
         onClose={closeAllPopups} 
         isOpen={isLoginPopupOpen} 
+        onOutsideClick={handleClickOutside}
+        onSwitchPopup={switchPopup}
       />
       
       <Register 
@@ -117,11 +156,16 @@ const App = () => {
         loggedIn={loggedIn} 
         onClose={closeAllPopups} 
         isOpen={isRegisterPopupOpen}
+        onOutsideClick={handleClickOutside}
+        onSwitchPopup={switchPopup}
       />
       
       <InfoTooltip 
         onClose={closeAllPopups}
         isOpen={isInfoTooltipOpen}
+        onOutsideClick={handleClickOutside}
+        onLoginClick={handleLogin}
+        
       />
 
       <Footer />

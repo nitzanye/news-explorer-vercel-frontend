@@ -4,9 +4,8 @@ import NewsCard from "../NewsCard/NewsCard";
 import '../NewsCard/NewsCard.css';
 import './NewsCardList.css';
 import card from "../data/card";
-// import card from "../data/card";
 
-const NewsCardList = () => {
+const NewsCardList = ({loggedIn}) => {
   // const card = {card}
  return (
   <section className='cards-list__section'>
@@ -18,6 +17,7 @@ const NewsCardList = () => {
           <NewsCard 
           key={card._id}
           card={card}
+          loggedIn={loggedIn}
         />
         ))}
       </ul> 
@@ -34,7 +34,3 @@ const NewsCardList = () => {
 }
 
 export default NewsCardList;
-
-{/* <ul className='cards-list__grid'>
- <NewsCard />
-</ul>  */}

@@ -3,7 +3,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import '../PopupWithForm/PopupWithForm.css';
 
 const Register = (props) => {
-  const { isOpen, onClose, onSubmit } = props;
+  const { isOpen, onClose, onSubmit, onOutsideClick, onSwitchPopup  } = props;
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -49,8 +49,11 @@ const Register = (props) => {
         // linkText='or Sign in'
         isOpen={isOpen}
         onClose={onClose}
+        onOutsideClick={onOutsideClick}
+        onSwitchPopup={onSwitchPopup}
         onSubmit={handleSubmit}
       >
+        <h3 className='form__title'>Email</h3>
         <input
            className={`form__input ${!isEmailValid && 'form__input_type_error'}`}
           type='email'
@@ -67,7 +70,7 @@ const Register = (props) => {
         >
           {errorMessage}
         </span>
-
+        <h3 className='form__title'>Password</h3>
         <input
           className={`form__input ${
             !isPasswordValid && 'form__input_type_error'
@@ -86,7 +89,7 @@ const Register = (props) => {
         >
           {errorMessage}
         </span>
-
+        <h3 className='form__title'>Username</h3>
         <input
           className={`form__input ${
             !isusernameValid && 'form__input_type_error'
@@ -95,8 +98,8 @@ const Register = (props) => {
           id='username'
           name='username'
           placeholder='Enter your username'
-          value={password}
-          onChange={handleChangePassword}
+          value={username}
+          onChange={handleChangeusername}
           required
         />
         <span
@@ -108,8 +111,9 @@ const Register = (props) => {
 
         <button
         type='submit'
-        className={`${isPasswordValid && isEmailValid ? 'button_type_submit' : 'button_type_submit button_type_submit-disabled'}`}
+        className={`${isPasswordValid && isEmailValid && isusernameValid ? 'button_type_submit' : 'button_type_submit button_type_submit-disabled'}`}
         >Sign up</button>
+        <p onClick={onSwitchPopup} className='link__text'>or <span className='link__swtich-popup'>Sign in</span></p>
       </PopupWithForm>
     </section>
   );

@@ -1,22 +1,24 @@
 // the components of the page with saved article page
 import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
+import SavedCard from "../SavedCard/SavedCard";
+import '../SavedCard/SavedCard.css';
+import './SavedNews.css';
+import card from "../data/card";
 
 // import NewsCardList from "../NewsCardList/NewsCardList";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
-import './SavedNews.css';
-import card from "../data/card";
 
 const SavedNews = () => {
   return (
     <section className='saved-news__section'>
       <SavedNewsHeader />
     <div className='saved-news__container'>
-       <ul className='cards-list__grid'>
+       <ul className='saved-cards__grid'>
         {card.map((card) => (
           // console.log(card)
-          <NewsCard 
+          <SavedCard 
           key={card._id}
           card={card}
         />
@@ -28,7 +30,3 @@ const SavedNews = () => {
 }
 
 export default SavedNews;
-
-<ul className='cards-list__grid'>
-       
-      </ul> 
