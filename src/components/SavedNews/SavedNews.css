@@ -1,5 +1,10 @@
 .saved-news__section {
+  display: flex;
+  flex-direction: column;
 background-color: white;
+/* align-items: center;
+width: 100%; */
+
 }
 
 .saved-news__container {

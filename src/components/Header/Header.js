@@ -13,6 +13,7 @@ const Header = (props) => {
     popupOpened,
   } = props;
 
+
   const {pathname} = useLocation();
   const lightHeader = pathname === '/saved-news'
 
@@ -27,7 +28,7 @@ const Header = (props) => {
  
   return (
     <header
-      className={`header 
+      className={`header
       ${popupOpened? 'header__hidden' : ''}`}>
       <div
         className={`overlay 

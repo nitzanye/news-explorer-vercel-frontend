@@ -1,6 +1,6 @@
 import React from "react";  
 import './Navigation.css';
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import logoutLight from '../../images/logoutLight.svg';
 import logoutDark from '../../images/logoutDark.svg';
@@ -18,17 +18,15 @@ const Navigation = (props) => {
 
   return (
     <nav className={`nav ${isDropDownOpen ? 'nav_open' : ''}`}>
-      <NavLink to='/'
+      <Link to='/'
       className={`nav__link ${lightHeader ? 'nav_light' : 'nav_dark'}`} 
-      activeclassname={`nav__link-marked ${lightHeader ? 'nav__link-marked_light' : 'nav__link-marked_dark'}`}
       > Home 
-      </NavLink>
+      </Link>
       {loggedIn && (
-        <NavLink to='/saved-news'
+        <Link to='/saved-news'
         className={`nav__link ${lightHeader ? 'nav_light' : 'nav_dark'}`} 
-        activeclassname={`nav__link-marked ${lightHeader ? 'nav__link-marked_light' : 'nav__link-marked_dark'}`}
         > Saved articles
-        </NavLink>
+        </Link>
       )}
       {!loggedIn ? (
         <button 

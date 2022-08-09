@@ -1,5 +1,6 @@
 .nav {
   display: flex;
+  align-items: center;
 }
 
 .nav__link {
@@ -13,30 +14,26 @@
   margin: 0;
   padding: 0;
   margin-right: 42px;
-  margin-top: 30px;
-  padding-bottom: 26px;
-  z-index: 7;
+  z-index: 5;
 }
 
 .nav_light {
   color: #1A1B22;
 }
 
+.nav_light:hover{
+  color: #1a1b22;
+  border-bottom: 3px solid #1a1b22;
+  padding-bottom: 56px;
+}
+
 .nav_dark {
   color: rgba(255, 255, 255, 1);
 }
 
-.nav__link-marked {
-  padding-bottom: 23px;
-}
-
-.nav__link-marked_light {
-  color: #1a1b22;
-  border-bottom: 3px solid #1a1b22;
-}
-
-.nav__link-marked_dark {
+.nav_dark:hover {
   border-bottom: 3px solid white;
+  padding-bottom: 56px;
 }
 
 .nav__button {
@@ -48,7 +45,6 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  margin-top: 16px;
   padding: 0;
   background-color: transparent;
   border-radius: 100px;
@@ -56,7 +52,7 @@
   min-width: 176px;
   height: 48px;
   cursor: pointer;
-  z-index: 7; 
+  z-index: 5; 
 }
 
 .nav__button_light {
@@ -83,11 +79,17 @@
   .nav__link {
     font-size: 16px;
     line-height: 24px;
-    padding-bottom: 20px;
   }
-
-  .nav__link-marked {
-    padding-bottom: 17px;
+ 
+  .nav_light:hover{
+    color: #1a1b22;
+    border-bottom: 3px solid #1a1b22;
+    padding-bottom: 43px;
+  }
+  
+  .nav_dark:hover {
+    border-bottom: 3px solid white;
+    padding-bottom: 43px;
   }
 
   .nav__button {
@@ -106,7 +108,6 @@
   .nav {
     flex-direction: column;
     gap: 22px;
-    max-width: 288px;
     padding-bottom: 0;
     overflow: hidden;
     transition: all 0.3s linear;
@@ -121,7 +122,9 @@
     overflow: visible;
     max-height: fit-content;
     position: relative;
-    z-index: 7;
+    z-index: 5;
+    margin: 0;
+    max-width: 288px;
   }
 
   .nav__link {
@@ -129,21 +132,40 @@
     line-height: 56px;
     margin: 0;
     padding: 0;
+    padding-left: 6px;
     align-self: flex-start;
+  }
+
+  .nav_light:hover{
+    border: none;
+    padding: 0;
+  }
+  
+  .nav_dark:hover {
+    border: none;
+    padding: 0;
   }
 
   .nav__button {
     font-size: 18px;
     line-height: 24px;
     height: 56px;
-    margin: 0;
+    margin: 0 auto;
+    min-width: 288px;
+    align-items: center;
   }
 
-  .nav__button_user {
+  .nav__button-user {
     max-width: fit-content;
-    padding: 0 19px;
+    padding: 0 100px;
   }
   .nav__logout {
     padding-left: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav_open {
+    margin: 0 auto;
   }
 }

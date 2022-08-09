@@ -1,16 +1,19 @@
 .header {
   height: 80px;
-  background: rgba(196, 196, 196, 0.01);
-  box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.2);
+  border-bottom: #E5E5E5 1px solid;
+  width: 100%;
+  max-width: 1232px;
+  margin: 19px 0 80px;
   align-self: center;
-  z-index: 200;
+  z-index: 5;
 }
 
 .header__content {
   display: flex;
   justify-content: space-between;
-  margin: 0 108px;
-  z-index: 23;
+  margin: 0 104px;
+  z-index: 5;
+  align-items: center;
 }
 
 .header__content_light {
@@ -26,18 +29,18 @@
   display: block;
   padding: 0;
   margin: 0;
+  /* margin-top: 14px; */
   cursor: pointer;
-  margin-top: 30px;
 }
 
 .header__logo_light {
   color: rgba(26, 27, 34, 1);
-  z-index: 3;
+  z-index: 5;
 }
 
 .header__logo_dark {
   color: rgba(255, 255, 255, 1);
-  z-index: 3;
+  z-index: 5;
 }
 
 .header__menu {
@@ -45,6 +48,11 @@
 }
 
 @media screen and (max-width: 800px) {
+  .header {
+    margin: 14px 40px 38px;
+    max-height: 68px;
+    min-height: 56px;
+  }
   .header__content {
     margin: 0 40px;
   }
@@ -52,16 +60,22 @@
 
 @media screen and (max-width: 700px) {
   .header__content {
-    margin: 0 16px;
+    /* margin: 0 16px; */
   }
 }
 
 @media screen and (max-width: 650px) {
+  .header {
+    margin: 0 40px 38px;
+    height: 56px;
+    border-bottom: #E5E5E5 1px solid;
+  }
+  
   .overlay {
       height: 100%;
       width: 100%;
       position: fixed;
-      z-index: 2;
+      z-index: 5;
       left: 0;
       top: 0;
       background-color: rgba(0, 0, 0, 0.5);
@@ -77,6 +91,7 @@
     position: relative;
     /* background: #1a1b22; */
     flex-direction: column;
+    align-items: flex-start;
     margin: 0px;
     padding: 0px 16px;
   }
@@ -91,6 +106,7 @@
 
   .header__logo {
     margin-top: 16px;
+    padding-left: 6px;
   }
 
   .header__menu {
@@ -102,7 +118,7 @@
     position: absolute;
     top: 16px;
     right: 16px;
-    z-index: 20;
+    z-index: 14;
   }
 
   .header__menu_light {
@@ -134,7 +150,18 @@
 
 
 @media screen and (max-width: 520px) {
+  .header {
+    margin: 0px;
+    
+  }
+
+  .header__content {
+    padding: 0px 0px;
+  }
+
   .header_hidden {
     visibility: hidden;
+    background-color: black;
+    background-size: cover;
   }
 }

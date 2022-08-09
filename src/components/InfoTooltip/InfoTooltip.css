@@ -42,3 +42,23 @@
   cursor: pointer;
   opacity: 0.5;
 }
+
+@media screen and (max-width: 530px) {
+  .popup__message {
+    max-width: 288px;
+    margin-left: 16px;
+  }
+
+  .button_type_close-tooltip {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    right: 0;
+    margin-top: -40px;
+    margin-right: 16px;
+  }
+
+  .popup__link {
+    margin-left: 16px;
+  }
+}

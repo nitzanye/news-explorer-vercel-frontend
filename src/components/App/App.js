@@ -110,15 +110,22 @@ const App = () => {
           path='/'
           element={
             <>
-              <Header 
+              {/* <Header 
                 loggedIn={loggedIn}
                 onLogin={handleLogin}
                 onLogout={handleLogOut}
                 onRegister={handleUserRegister}
                 popupOpened={popupOpened}
                
+              /> */}
+              <Main 
+              onSubmit={handleSearchSubmit} 
+              loggedIn={loggedIn}
+              onLogin={handleLogin}
+              onLogout={handleLogOut}
+              onRegister={handleUserRegister}
+              popupOpened={popupOpened}
               />
-              <Main onSubmit={handleSearchSubmit} />
 
               {searchSubmit && <NewsCardList loggedIn={loggedIn}/>}
               <About />
@@ -130,12 +137,16 @@ const App = () => {
           path='/saved-news'
           element={
             <>
-              <Header 
+              {/* <Header 
+                loggedIn={loggedIn}
+                onLogin={handleLogin}
+                onLogout={handleLogOut}
+              /> */}
+              <SavedNews 
                 loggedIn={loggedIn}
                 onLogin={handleLogin}
                 onLogout={handleLogOut}
               />
-              <SavedNews />
             </>
           }
         >
