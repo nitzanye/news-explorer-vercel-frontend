@@ -1,6 +1,6 @@
 // the components of the page with saved article page
 import React from "react";
-import NewsCard from "../NewsCard/NewsCard";
+// import NewsCard from "../NewsCard/NewsCard";
 import SavedCard from "../SavedCard/SavedCard";
 import '../SavedCard/SavedCard.css';
 import './SavedNews.css';
@@ -14,7 +14,7 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 const SavedNews = ({ loggedIn, onLogin, onLogout }) => {
   return (
     <>
-    <section className='saved-news__section'>
+    <main className='saved-news__section'>
     <Header 
       loggedIn={loggedIn}
       onLogin={onLogin}
@@ -32,7 +32,7 @@ const SavedNews = ({ loggedIn, onLogin, onLogout }) => {
         ))}
       </ul> 
     </div>
-  </section > 
+  </main > 
   </>
   );
 }

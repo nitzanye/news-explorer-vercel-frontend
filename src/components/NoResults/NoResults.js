@@ -1,6 +1,6 @@
 import React from "react";
 import './NoResults.css';
-import notFound from '../../images/notFound.png';
+import notFound from '../../images/notFound.svg'
 
 const NoResults = () => {
   return (

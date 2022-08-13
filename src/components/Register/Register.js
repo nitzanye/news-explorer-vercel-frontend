@@ -10,7 +10,7 @@ const Register = (props) => {
   const [username, setusername] = React.useState('');
   const [isEmailValid, setIsEmailValid] = React.useState(true);
   const [isPasswordValid, setIsPasswordValid] = React.useState(true);
-  const [isusernameValid, setIsusernameValid] = React.useState(true);
+  const [isUsernameValid, setIsusernameValid] = React.useState(true);
   const [errorMessage, setErrorMessage] = React.useState('');
 
   const handleChangeEmail = (e) => {
@@ -66,7 +66,7 @@ const Register = (props) => {
         />
          <span
           id='email-input-error'
-          className={`form__error ${!isEmailValid && 'form__error_visible'}`}
+          className={`form__error ${!isEmailValid && 'form__error_type_visible'}`}
         >
           {errorMessage}
         </span>
@@ -85,14 +85,14 @@ const Register = (props) => {
         />
         <span
           id='password-input-error'
-          className={`form__error ${!isPasswordValid && 'form__error_visible'}`}
+          className={`form__error ${!isPasswordValid && 'form__error_type_visible'}`}
         >
           {errorMessage}
         </span>
         <h3 className='form__title'>Username</h3>
         <input
           className={`form__input ${
-            !isusernameValid && 'form__input_type_error'
+            !isUsernameValid && 'form__input_type_error'
           }`}
           type='name'
           id='username'
@@ -103,15 +103,15 @@ const Register = (props) => {
           required
         />
         <span
-          id='password-input-error'
-          className={`form__error ${!isPasswordValid && 'form__error_visible'}`}
+          id='username-input-error'
+          className={`form__error ${!isUsernameValid && 'form__error_type_visible'}`}
         >
           {errorMessage}
         </span>
 
         <button
         type='submit'
-        className={`${isPasswordValid && isEmailValid && isusernameValid ? 'button_type_submit' : 'button_type_submit button_type_submit-disabled'}`}
+        className={`${isPasswordValid && isEmailValid && isUsernameValid ? 'button_type_submit' : 'button_type_submit button_type_submit-disabled'}`}
         >Sign up</button>
         <p onClick={onSwitchPopup} className='link__text'>or <span className='link__swtich-popup'>Sign in</span></p>
       </PopupWithForm>

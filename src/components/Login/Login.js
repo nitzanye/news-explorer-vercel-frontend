@@ -34,7 +34,7 @@ const Login = (props) => {
     <section className='auth-form'>
       <PopupWithForm
         name='login'
-        popupTitle='Log in'
+        popupTitle='Sign In'
         // linkPath='/signup'
         // linkText='or Sign up'
         isOpen={isOpen}
@@ -56,7 +56,7 @@ const Login = (props) => {
         />
          <span
           id='email-input-error'
-          className={`form__error ${!isEmailValid && 'form__error_visible'}`}
+          className={`form__error ${!isEmailValid && 'form__error_type_visible'}`}
         >
           {errorMessage}
         </span>
@@ -75,7 +75,7 @@ const Login = (props) => {
         />
         <span
           id='password-input-error'
-          className={`form__error ${!isPasswordValid && 'form__error_visible'}`}
+          className={`form__error ${!isPasswordValid && 'form__error_type_visible'}`}
         >
           {errorMessage}
         </span>

@@ -22,6 +22,9 @@ const SearchForm = ({ onSubmit }) => {
   }
   
   return (
+    <section className='search__section'>
+      <h1 className='search__title'>What's going on in the world?</h1>
+      <p className='search__text'>Find the latest news on any topic and save them in your personal account.</p>
       <form
         className='search__container'
          onSubmit={handleSearchSubmit}
@@ -49,6 +52,7 @@ const SearchForm = ({ onSubmit }) => {
               </button>
           </div>
       </form>
+    </section>
   );
 }
 

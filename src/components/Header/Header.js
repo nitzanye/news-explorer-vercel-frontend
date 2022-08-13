@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useWindowDimensions } from "../../hooks/useWindowDimensions";
+// import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 import Navigation from "../Navigation/Navigation";
 import './Header.css';
 
@@ -29,6 +29,7 @@ const Header = (props) => {
   return (
     <header
       className={`header
+      ${lightHeader? 'header_style_light' : ''}
       ${popupOpened? 'header__hidden' : ''}`}>
       <div
         className={`overlay 
@@ -38,17 +39,17 @@ const Header = (props) => {
       </div>
       <div 
          className={`header__content
-         ${lightHeader ? 'header__content_light' : ''}
+         ${lightHeader ? 'header__content_style_light' : ''}
          ${!isDropDownOpen && !lightHeader ? 'header__content' : ''}
-         ${isDropDownOpen && !lightHeader ? 'header__content_dark' : ''}
+         ${isDropDownOpen && !lightHeader ? 'header__content_style_dark' : ''}
          `}
       >
-        <h2 className={`header__logo ${lightHeader ? 'header__logo_light' : 'header__logo_dark'}`}>NewsExplorer</h2>
+        <h2 className={`header__logo ${lightHeader ? 'header__logo_style_light' : 'header__logo_style_dark'}`}>NewsExplorer</h2>
         <button
           className={`
-          ${lightHeader ? 'header__menu header__menu_dark' : 'header__menu header__menu_light'} 
+          ${lightHeader ? 'header__menu header__menu_style_dark' : 'header__menu header__menu_style_light'} 
           ${isDropDownOpen ? 'header__close' : ''} 
-          ${isDropDownOpen && lightHeader ? 'header__close_dark' : ''}`}
+          ${isDropDownOpen && lightHeader ? 'header__close_style_dark' : ''}`}
           onClick={toggleHamburger}
         />
       <Navigation 

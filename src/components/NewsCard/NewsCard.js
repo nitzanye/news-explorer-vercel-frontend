@@ -1,7 +1,7 @@
 // The news card component
 import React from 'react';
 import './NewsCard.css';
-import card from '../data/card';
+// import card from '../data/card';
 
 const NewsCard = (props) => {
   const {card, loggedIn} = props;
@@ -26,7 +26,7 @@ const NewsCard = (props) => {
         key={card._id}
         // key={article._id}
       >
-        <div className='card__keyword_hidden'>{card.keyword}</div>
+        <div className='card__keyword_type_hidden'>{card.keyword}</div>
         <button 
           type='button'
           className={loggedIn && isClicked ? 'card__button-save_active' : 'card__button-save'}

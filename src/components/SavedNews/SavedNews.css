@@ -27,7 +27,7 @@ width: 100%; */
   background-color: rgba(245, 246, 247, 1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .saved-cards__grid {
     grid-template-columns: repeat(auto-fit, 224px);
     gap: 8px 8px;

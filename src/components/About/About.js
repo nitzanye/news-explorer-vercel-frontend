@@ -6,8 +6,8 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className='about__container'>
-      <img  className='about__img' src={author} alt='Author picture' />
+    <section className='about__section'>
+      <img  className='about__img' src={author} alt='Author' />
       <article className='about__wrapper'>
         <h2 className='about__title'>About the author</h2>
         <p className='about__text'>Hey, I'm Nitzan Smulevici, a full-stack web developer with experience building websites and web applications.
@@ -15,7 +15,7 @@ const About = () => {
 Focused on MERN stack (MongoDB, ExpressJS, React, Node).</p>
         <p className='about__text'>Feel free to contact me via the links below for business inquiries.</p>
       </article>
-    </div>
+    </section>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";  
 import './Navigation.css';
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import logoutLight from '../../images/logoutLight.svg';
 import logoutDark from '../../images/logoutDark.svg';
@@ -17,28 +17,33 @@ const Navigation = (props) => {
   const lightHeader = pathname === '/saved-news'
 
   return (
-    <nav className={`nav ${isDropDownOpen ? 'nav_open' : ''}`}>
-      <Link to='/'
-      className={`nav__link ${lightHeader ? 'nav_light' : 'nav_dark'}`} 
+    <nav className={`nav 
+      ${isDropDownOpen ? 'nav_open' : ''}
+      ${isDropDownOpen && loggedIn ? 'nav_open-user' : ''}
+      `}>
+      <NavLink
+      className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')} 
+      to={'/'}
       > Home 
-      </Link>
+      </NavLink>
       {loggedIn && (
-        <Link to='/saved-news'
-        className={`nav__link ${lightHeader ? 'nav_light' : 'nav_dark'}`} 
+        <NavLink 
+        className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')} 
+        to={'/saved-news'}
         > Saved articles
-        </Link>
+        </NavLink>
       )}
       {!loggedIn ? (
         <button 
           onClick={onLogin}
-          className={`nav__button ${lightHeader ? 'nav__button_light' : 'nav__button_dark'}`}
+          className={`nav__button ${lightHeader ? 'nav__button_style_light' : 'nav__button_style_dark'}`}
           >
           Sign in
         </button>
       ): (
         <button
           onClick={onLogout}
-          className={`nav__button nav__button-user ${lightHeader ? 'nav__button_light' : 'nav__button_dark'}`}
+          className={`nav__button nav__button-user ${lightHeader ? 'nav__button_style_light' : 'nav__button_style_dark'}`}
         >
           Elise
           <img 
