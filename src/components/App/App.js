@@ -8,13 +8,6 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Register from '../Register/Register';
 import './App.css';
 
-// import { useNavigate } from 'react-router-dom';
-// import Header from '../Header/Header';
-// import About from '../About/About';
-// import NewsCardList from '../NewsCardList/NewsCardList';
-// import SearchForm from '../SearchForm/SearchForm';
-// import SearchForm from '../SearchForm/SearchForm';
-
 const App = () => {
 
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -99,7 +92,7 @@ const App = () => {
   }
 
   return (
-    <div className='page'>
+    <div className='app'>
       <Routes>
         <Route
           path='/'

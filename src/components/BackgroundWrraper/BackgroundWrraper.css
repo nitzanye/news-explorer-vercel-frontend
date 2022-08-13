@@ -1,4 +1,4 @@
-/* .bg-wrraper {
+.bg-wrraper {
   display: flex;
   min-height: 576px;
   flex-direction: column;
@@ -22,4 +22,4 @@
   .bg-wrraper {
     min-height: 536px;
   }
-} */
+}

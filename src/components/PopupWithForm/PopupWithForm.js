@@ -1,7 +1,7 @@
 // Responsible for the modal window
 
-import React, { Children } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+// import { Link } from "react-router-dom";
 import './PopupWithForm.css';
 
 const PopupWithForm = (props) => {

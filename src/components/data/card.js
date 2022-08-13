@@ -1,7 +1,7 @@
-import React from "react";
-import dogImage from '../../images/dogImage.png';
-import natureImage from '../../images/natureImage.png';
-import parksImage from '../../images/parksImage.png';
+// import React from "react";
+// import dogImage from '../../images/dogImage.png';
+// import natureImage from '../../images/natureImage.png';
+// import parksImage from '../../images/parksImage.png';
 
 const card = [
   {
