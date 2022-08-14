@@ -1,0 +1,64 @@
+.popup__message {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+  padding: 0; 
+  margin-top: 43px;
+  margin-left: 36px;  
+}
+
+.popup__link {
+  all: unset;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(47, 113, 229, 1);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  margin-top: 14px;
+  margin-bottom: 51px;
+  margin-left: 36px;
+}
+
+.button_type_close-tooltip {
+  background: url(../../images/closeIcon.svg) no-repeat center;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -18%;
+  right: -7%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.button_type_close-tooltip:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 530px) {
+  .popup__message {
+    max-width: 288px;
+    margin-left: 16px;
+  }
+
+  .button_type_close-tooltip {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    right: 0;
+    margin-top: -40px;
+    margin-right: 16px;
+  }
+
+  .popup__link {
+    margin-left: 16px;
+  }
+}

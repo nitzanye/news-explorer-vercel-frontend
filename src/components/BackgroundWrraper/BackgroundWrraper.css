@@ -1,0 +1,25 @@
+.bg-wrraper {
+  display: flex;
+  min-height: 576px;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+  width:100%;
+  background-image: url('../../images/searchImage.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) { 
+  .bg-wrraper {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .bg-wrraper {
+    min-height: 536px;
+  }
+}
