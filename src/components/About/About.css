@@ -1,4 +1,4 @@
-.about__section {
+.about {
   display: flex;
   width: 100%;
   max-width: 1232px;
@@ -50,7 +50,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .about__section {
+  .about {
    padding: 40px 40px 61px;
   }
 
@@ -76,7 +76,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .about__section {
+  .about {
    flex-direction: column;
    padding: 32px 24px 128px ;
   }
@@ -91,7 +91,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  .about__section {
+  .about {
     flex-direction: column;
     padding: 32px 0 128px ;
    }

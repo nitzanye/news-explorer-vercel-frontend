@@ -3,7 +3,7 @@ import './Preloader.css';
 
 const Preloader = () => {
   return (
-    <section className='preloader__section'>
+    <section className='preloader'>
        <i className='circle-preloader' />
        <h2 className='preloader__title'>Searching for news...</h2>
     </section>

@@ -2,11 +2,10 @@
 import React from "react";
 import author from '../../images/author.jpeg';
 import './About.css';
-// import '../About/About.css';
 
 const About = () => {
   return (
-    <section className='about__section'>
+    <section className='about'>
       <img  className='about__img' src={author} alt='Author' />
       <article className='about__wrapper'>
         <h2 className='about__title'>About the author</h2>

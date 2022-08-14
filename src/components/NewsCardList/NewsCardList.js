@@ -8,7 +8,7 @@ import card from "../data/card";
 const NewsCardList = ({loggedIn}) => {
   // const card = {card}
  return (
-  <section className='cards-list__section'>
+  <section className='cards-list'>
     <div className='cards-list__container'>
       <h2 className='cards-list__title'>Search results</h2>
       <ul className='cards-list__grid'>
