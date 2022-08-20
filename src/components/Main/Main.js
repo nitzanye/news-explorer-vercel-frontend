@@ -40,21 +40,26 @@ const Main = ({
       { isDataLoading ?
         <Preloader /> : <></>
       }
-      {searchSubmit && 
+      {/* {searchSubmit && 
         <Results 
           loggedIn={loggedIn} 
           articles={articles} 
           onSave={onSave} 
           savedArticles={savedArticles}
-          // keyword={keyword}
+          keyword={keyword}
         />
-      }
-      {/* {searchSubmit && !(articles > 0) 
+      } */}
+      {searchSubmit && !(articles.length > 0) 
         ? 
-        (searchSubmit && <NoResults />)
+        (<NoResults />)
         : 
-        (searchSubmit && <Results loggedIn={loggedIn} articles={articles} />)
-        } */}
+        (searchSubmit && <Results   
+          loggedIn={loggedIn} 
+          articles={articles} 
+          onSave={onSave} 
+          savedArticles={savedArticles}
+          keyword={keyword} />)
+        }
 
       <About />
     </main>

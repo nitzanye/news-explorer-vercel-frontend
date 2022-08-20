@@ -50,9 +50,9 @@ const getArticles = useCallback(() => {
   loggedIn && 
     mainApi
       .getSavedArticles()
-      .then((articleList) => {
+      .then((articlesList) => {
         setSavedArticles(
-          articleList.map((article) => {
+          articlesList.map((article) => {
             // const name = article.source.name;
             return {
               _id: article._id,
@@ -91,7 +91,7 @@ const getArticles = useCallback(() => {
         keyword: article.keyword,
         title: article.title,
         text: article.content,
-        data: article.publishedAt,
+        date: article.publishedAt,
         source: article.source.name,
         link: article.url,
         image: article.urlToImage,
@@ -158,7 +158,7 @@ const getArticles = useCallback(() => {
       return console.log('Error.....');
     }
     auth
-      .register(email, password)
+      .register(email, password, name)
       .then(() => {
         closeAllPopups();
         setIsInfoTooltipOpen(true);
@@ -178,7 +178,7 @@ const getArticles = useCallback(() => {
       if (data.token) {
         localStorage.setItem('token', data.token);
         setLoggedIn(true);
-        // setName(name);
+        setName(name);
         closeAllPopups();
         // navigate('/');
         return data;
@@ -270,7 +270,7 @@ const getArticles = useCallback(() => {
                   onLogout={handleLogOut}
 
                   currentUser={currentUser}
-                  savedArticle={savedArticles}
+                  savedArticles={savedArticles}
                   onDelete={handleDeleteArticle}
                 />
               </>

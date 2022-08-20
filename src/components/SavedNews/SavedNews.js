@@ -5,7 +5,6 @@ import SavedCard from "../SavedCard/SavedCard";
 import './SavedNews.css';
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
-// import SavedNewsSection from "../SavedNewsSection/SavedNewsSection";
 
 const SavedNews = ({ loggedIn, onLogin, onLogout, savedArticles, onDelete, currentUser }) => {
   return (
@@ -16,12 +15,13 @@ const SavedNews = ({ loggedIn, onLogin, onLogout, savedArticles, onDelete, curre
       onLogout={onLogout}
       currentUser={currentUser}
     /> 
-    <SavedNewsHeader savedArticles={savedArticles} />
+    <SavedNewsHeader savedArticles={savedArticles} currentUser={currentUser}/>
 
     <section className='saved-news'>
       {/* {children} */}
        <ul className='saved-cards__grid'>
         {savedArticles.map((article) => {
+
         return (
           <SavedCard 
           card={article}

@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import '../NewsCard/NewsCard.css';
 import './Results.css';
 
-const Results = ({loggedIn, articles, onSave, savedArticles}) => {
+const Results = ({loggedIn, articles, onSave, savedArticles, keyword}) => {
 
   // for each click render only 3 articles
   const [showMoreNews, setShowMoreNews] = React.useState(0);
@@ -21,6 +21,7 @@ const Results = ({loggedIn, articles, onSave, savedArticles}) => {
       <h2 className='cards-list__title'>Search results</h2>
       <ul className='cards-list__grid'>
           {articlesList.map((card) => {
+            card.keyword = keyword;
             return (
             <NewsCard 
               card={card}
@@ -28,6 +29,7 @@ const Results = ({loggedIn, articles, onSave, savedArticles}) => {
               loggedIn={loggedIn}
               onSave={onSave}
               savedArticles={savedArticles}
+              // keyword={keyword}
            />
             )
       })}

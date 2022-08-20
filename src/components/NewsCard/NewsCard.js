@@ -3,7 +3,7 @@ import React from 'react';
 import './NewsCard.css';
 import Card from '../Card/Card';
 
-const NewsCard = ({ card, loggedIn, onSave, savedArticles }) => {
+const NewsCard = ({ card, loggedIn, onSave, savedArticles, keyword }) => {
   const [isHovering, setIsHovering] = React.useState(false);
   // const [isClicked, setIsButtonClicked ] = React.useState(false);
 

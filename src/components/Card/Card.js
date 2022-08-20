@@ -2,15 +2,14 @@
 import React from "react";
 import './Card.css';
 
-const Card = ({card, childern}) => {
+const Card = ({card, children}) => {
   const date = new Date(card.publishedAt);
   const formatedDate = date.toLocaleString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
-
   return (
     <article 
       className='card__container'
     >
-      {childern}
+      {children}
       <img 
           className='card__image'
           alt={card.title}
