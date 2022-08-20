@@ -7,8 +7,6 @@ import './PopupWithForm.css';
 const PopupWithForm = (props) => {
   const { name, isOpen, popupTitle, children, onSubmit, onClose, onOutsideClick } = props;
 
-  // name - signin / signup
-
   return(
     <div onClick={onOutsideClick} className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} >
       <div className='popup__window' >
@@ -20,9 +18,6 @@ const PopupWithForm = (props) => {
           noValidate
         >
           {children}
-          {/* <Link to={linkPath} className='form__link'>
-          {linkText}
-          </Link> */}
         </form>
         <button
           className='popup__close-button'

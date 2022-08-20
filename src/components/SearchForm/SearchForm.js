@@ -6,19 +6,19 @@ import './SearchForm.css';
 
 const SearchForm = ({ onSubmit }) => {
   const [placeholder, setPlaceHolder] = React.useState('Enter topic');
-  const [textField, setTextField] = React.useState('');
+  const [query, setQuery] = React.useState('');
   const [isButtonClicked, setIsButtonClicked ] = React.useState(false);
   const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
-  const handleSearchChange = (e) => setTextField(e.target.value);  
+  const handleSearchChange = (e) => setQuery(e.target.value);  
   const searchButtonClassName = `search__button ${isButtonHovered ? 'search__button-over' : ''} ${isButtonClicked ? 'search__button-active' : ''}`;
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (textField === '') {
+    if (query === '') {
       return setPlaceHolder('Text is not entered');
     }
-    onSubmit();
+    onSubmit(query);
   }
   
   return (
@@ -36,7 +36,8 @@ const SearchForm = ({ onSubmit }) => {
                 type='text'
                 className='search__field'
                 placeholder={placeholder}
-                value={textField || ''}
+                // value={textField || ''}
+                value={query}
                 onChange={handleSearchChange}
                 // required
               />

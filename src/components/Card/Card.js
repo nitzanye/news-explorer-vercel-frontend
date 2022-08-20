@@ -1,0 +1,33 @@
+// The Card component -that relate to: NewsCard and SavedCard
+import React from "react";
+import './Card.css';
+
+const Card = ({card, childern}) => {
+  const date = new Date(card.publishedAt);
+  const formatedDate = date.toLocaleString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
+
+  return (
+    <article 
+      className='card__container'
+    >
+      {childern}
+      <img 
+          className='card__image'
+          alt={card.title}
+          src={card.urlToImage}
+          // src={NewsCard.link}
+          // alt={NewsCard.name}
+        />
+        <div className='card__content'>
+          <div className='card__date'>{formatedDate}</div>
+          <a href={card.url} className='card__link' target='_blank'>
+            <h2 className='card__title'>{card.title}</h2>
+            <p className='card__text'>{card.content}</p>
+          </a>
+          <p className='card__source'>{card.source.name}</p>
+        </div>
+    </article>
+  );
+} 
+
+export default Card;

@@ -4,6 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import logoutLight from '../../images/logoutLight.svg';
 import logoutDark from '../../images/logoutDark.svg';
+// import { CurrentUserContext  } from "../../contexts/CurrentUserContext";
 
 const Navigation = (props) => {
   const {
@@ -11,8 +12,11 @@ const Navigation = (props) => {
     onLogin, 
     onLogout,
     isDropDownOpen,
-  } = props;
+    currentUser,
 
+  } = props;
+  
+  // const currentUser = React.useContext(CurrentUserContext);
   const {pathname} = useLocation();
   const lightHeader = pathname === '/saved-news'
 
@@ -45,7 +49,7 @@ const Navigation = (props) => {
           onClick={onLogout}
           className={`nav__button nav__button-user ${lightHeader ? 'nav__button_style_light' : 'nav__button_style_dark'}`}
         >
-          Elise
+          {currentUser.name}
           <img 
           className='nav__logout' 
           src={lightHeader ? logoutDark : logoutLight}

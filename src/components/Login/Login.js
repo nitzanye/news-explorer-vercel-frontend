@@ -35,8 +35,6 @@ const Login = (props) => {
       <PopupWithForm
         name='login'
         popupTitle='Sign In'
-        // linkPath='/signup'
-        // linkText='or Sign up'
         isOpen={isOpen}
         onClose={onClose}
         onOutsideClick={onOutsideClick}

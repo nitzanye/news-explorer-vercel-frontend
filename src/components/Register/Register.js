@@ -7,7 +7,7 @@ const Register = (props) => {
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [username, setusername] = React.useState('');
+  const [name, setName] = React.useState('');
   const [isEmailValid, setIsEmailValid] = React.useState(true);
   const [isPasswordValid, setIsPasswordValid] = React.useState(true);
   const [isUsernameValid, setIsusernameValid] = React.useState(true);
@@ -29,14 +29,14 @@ const Register = (props) => {
 
   const handleChangeusername = (e) => {
     const { value, validity, validationMessage } = e.target;
-    setusername(value);
+    setName(value);
     setIsusernameValid(validity.valid);
     !validity.valid && setErrorMessage(validationMessage);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(email, password, username);
+    onSubmit(email, password, name);
   };
 
 
@@ -95,10 +95,10 @@ const Register = (props) => {
             !isUsernameValid && 'form__input_type_error'
           }`}
           type='name'
-          id='username'
-          name='username'
+          id='name'
+          name='name'
           placeholder='Enter your username'
-          value={username}
+          value={name}
           onChange={handleChangeusername}
           required
         />

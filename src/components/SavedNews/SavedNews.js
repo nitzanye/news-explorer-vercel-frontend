@@ -1,35 +1,39 @@
 // the components of the page with saved article page
 import React from "react";
-// import NewsCard from "../NewsCard/NewsCard";
 import SavedCard from "../SavedCard/SavedCard";
-import '../SavedCard/SavedCard.css';
+// import '../SavedCard/SavedCard.css';
 import './SavedNews.css';
-import card from "../data/card";
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
-import SavedNewsSection from "../SavedNewsSection/SavedNewsSection";
+// import SavedNewsSection from "../SavedNewsSection/SavedNewsSection";
 
-// import NewsCardList from "../NewsCardList/NewsCardList";
-
-const SavedNews = ({ loggedIn, onLogin, onLogout }) => {
+const SavedNews = ({ loggedIn, onLogin, onLogout, savedArticles, onDelete, currentUser }) => {
   return (
   <>
     <Header 
       loggedIn={loggedIn}
       onLogin={onLogin}
       onLogout={onLogout}
+      currentUser={currentUser}
     /> 
-    <SavedNewsHeader />
-    <SavedNewsSection>
+    <SavedNewsHeader savedArticles={savedArticles} />
+
+    <section className='saved-news'>
+      {/* {children} */}
        <ul className='saved-cards__grid'>
-        {card.map((card) => (
+        {savedArticles.map((article) => {
+        return (
           <SavedCard 
-          key={card._id}
-          card={card}
+          card={article}
+         
+          key={article._id}
+          onDelete={onDelete}
         />
-        ))}
+        );  
+      })}
       </ul> 
-    </SavedNewsSection>
+      </section>
+   
   </>
   );
 }

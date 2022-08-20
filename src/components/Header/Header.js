@@ -11,6 +11,7 @@ const Header = (props) => {
     onLogout, 
     onLogin, 
     popupOpened,
+    currentUser,
   } = props;
 
 
@@ -59,6 +60,7 @@ const Header = (props) => {
         onLogout={onLogout}
         isDropDownOpen={isDropDownOpen}
         lightHeader={lightHeader}
+        currentUser={currentUser}
       />
       </div> 
     </header>
