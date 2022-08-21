@@ -66,7 +66,7 @@ A responsive website made in ReactJS
 https://github.com/nitzanye/news-explorer-frontend.git
 
 - Start the server:
-npm run start
+**npm run start**
 
 - Deploy the Frontend:
-npm run deploy
+**npm run deploy**
