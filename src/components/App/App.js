@@ -15,11 +15,8 @@ import './App.css';
 
 const App = () => {
 
-const [loggedIn, setLoggedIn] = React.useState(false);
-
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  // const [email, setEail] = React.useState('');
-  // const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
 
   const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
@@ -33,7 +30,7 @@ const [loggedIn, setLoggedIn] = React.useState(false);
   const [keyword, setKeyword] = React.useState(localStorage.getItem('keyword'));
   const [articles, setArticles] = React.useState(JSON.parse(localStorage.getItem('searchResults')))
   const [savedArticles, setSavedArticles] = React.useState([]);
-  // const [sortSavedArticles, setSortSaveArticles] = React.useState([]);
+
   
   const navigate = useNavigate();
 
@@ -45,7 +42,6 @@ const [loggedIn, setLoggedIn] = React.useState(false);
         .catch((err) => console.log(`Error.....: ${err}`));
   }, [loggedIn]);
 
-// create a callback for saving articles
 const getArticles = useCallback(() => {
   loggedIn && 
     mainApi
@@ -53,7 +49,6 @@ const getArticles = useCallback(() => {
       .then((articlesList) => {
         setSavedArticles(
           articlesList.map((article) => {
-            // const name = article.source.name;
             return {
               _id: article._id,
               keyword: article.keyword,
@@ -69,24 +64,20 @@ const getArticles = useCallback(() => {
         );
       })
         .catch(() => setSavedArticles([]));
-        // .catch((err) => console.log(`Error.....: ${err}`));
       }, [loggedIn]);
   
   React.useEffect(() => {
     getArticles();
   } ,[getArticles]);
 
-  // savearticle of the current user
+  // save article of the current user
   const handleSaveArticle = (article) => {
     const isSavedAlready = savedArticles.find((savedArticle) => savedArticle.url === article.url);
     if (isSavedAlready) {
-      // delete the article
       mainApi
         .deleteArticle(isSavedAlready._id)
         .then(() => getArticles())
-        // .catch((err) => console.log(`Error.....: ${err}`))
     } else {
-      // create new article
       mainApi.createNewArticle({
         keyword: article.keyword,
         title: article.title,
@@ -151,8 +142,6 @@ const getArticles = useCallback(() => {
 
   const popupOpened = isLoginPopupOpen || isRegisterPopupOpen || isInfoTooltipOpen;
   
-  
-  
   const handleUserRegister = (email, password, name) => {
     if (!email || !password || !name) {
       return console.log('Error.....');
@@ -180,7 +169,6 @@ const getArticles = useCallback(() => {
         setLoggedIn(true);
         setName(name);
         closeAllPopups();
-        // navigate('/');
         return data;
       }
     })
@@ -193,8 +181,6 @@ const getArticles = useCallback(() => {
     closeAllPopups();
     setIsLoginPopupOpen(true);
  }
-
-
 
   const closeAllPopups = () => {
     setIsLoginPopupOpen(false);
@@ -214,13 +200,10 @@ const getArticles = useCallback(() => {
         closeAllPopups();
       }
     };
-
     
-    // popupOpened && document.addEventListener('click', handleClickOutside);
     popupOpened && document.addEventListener('keydown', handleEscape);
 
     return () => {
-      // document.removeEventListener('click', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
   }, [popupOpened]);
@@ -246,10 +229,8 @@ const getArticles = useCallback(() => {
                 onLogout={handleLogOut}
                 onRegister={handleUserRegister}
                 popupOpened={popupOpened}
-
                 isDataLoading={isDataLoading}
                 searchSubmit={searchSubmit}
-            
                 keyword={keyword}
                 articles={articles}
                 onSave={handleSaveArticle}
@@ -277,7 +258,6 @@ const getArticles = useCallback(() => {
               </ProtectedRoute>
             }
           />
-          {/* </Route> */}
           <Route 
               path='*' 
               element={

@@ -1,4 +1,3 @@
-// A presentational component that displays information about the author
 import React from "react";
 import author from '../../images/author.jpeg';
 import './About.css';

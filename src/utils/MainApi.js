@@ -1,9 +1,3 @@
-// The first file will contain a description of requests to your API
-// Write this code in vanilla JS using fetch()
-
-// To get data about saved cards, send a GET request to /articles of your API. //
-// DELETE request : In the upper-right corner, there should be a trash icon. Clicking on it removes the card from the saved cards by sending a request to /articles/articleId of your API. //
-
 class MainApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
@@ -13,8 +7,7 @@ class MainApi {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   };
 
-  // return user information - about the logged-in user (email and username) 
-  // get request - endpoint '/users/me'
+  // Return user information - about the current user (email and username) 
   getUserData = () => {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'Get',
@@ -24,7 +17,7 @@ class MainApi {
     }).then(this._checkResStatus);
   };
 
-    // return all articles saved by the user endpoint? '/articles' ? add get request ?
+    // Return all articles saved by the current user 
     getSavedArticles = () => {
       return fetch(`${this._baseUrl}/articles`, {
         method: 'GET',
@@ -34,7 +27,7 @@ class MainApi {
       }).then(this._checkResStatus);
     };
 
-  // post request to my api 
+  // Save new article request 
  createNewArticle = (article) => {
   return fetch(`${this._baseUrl}/articles`, {
     method: 'POST',
@@ -47,7 +40,7 @@ class MainApi {
   .then(this._checkResStatus);
  };
 
- // delete request - /articles/:articleId - delete the stored article by _id
+ // Delete saved article request - delete the stored article by _id
 deleteArticle = (articleId) => {
   return fetch(`${this._baseUrl}/articles/${articleId}`, {
       method: 'DELETE',

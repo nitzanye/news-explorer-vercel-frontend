@@ -1,7 +1,6 @@
 // The search form for the user to enter their search request
 
 import React from "react";
-// import { Link } from 'react-router-dom';
 import './SearchForm.css';
 
 const SearchForm = ({ onSubmit }) => {
@@ -28,18 +27,14 @@ const SearchForm = ({ onSubmit }) => {
       <form
         className='search__container'
          onSubmit={handleSearchSubmit}
-      //   name={name}
-      //   noValidate
       >
           <div className='search__wrapper'>
               <input
                 type='text'
                 className='search__field'
                 placeholder={placeholder}
-                // value={textField || ''}
                 value={query}
                 onChange={handleSearchChange}
-                // required
               />
               <button
                 type='submit'

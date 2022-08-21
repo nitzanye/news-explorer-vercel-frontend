@@ -13,10 +13,8 @@ const SavedNewsHeader = ({ savedArticles, currentUser}) => {
 
   const modeMapToKeywordArray = Object.entries(modeMap)
   const sortedArray = modeMapToKeywordArray.sort((a,b) => b[1] - a[1])
- 
   const sortedElements = sortedArray.map(el => ` ${el[0]}`)
   const commaSeparetedElements = sortedElements.join( ', ')
-
   const first2 = sortedElements.slice(0, 2).join(', ');
 
   return (

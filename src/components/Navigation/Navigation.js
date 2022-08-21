@@ -1,10 +1,8 @@
 import React from "react";  
 import './Navigation.css';
 import { NavLink, useLocation } from "react-router-dom";
-
 import logoutLight from '../../images/logoutLight.svg';
 import logoutDark from '../../images/logoutDark.svg';
-// import { CurrentUserContext  } from "../../contexts/CurrentUserContext";
 
 const Navigation = (props) => {
   const {
@@ -16,7 +14,6 @@ const Navigation = (props) => {
 
   } = props;
   
-  // const currentUser = React.useContext(CurrentUserContext);
   const {pathname} = useLocation();
   const lightHeader = pathname === '/saved-news'
 

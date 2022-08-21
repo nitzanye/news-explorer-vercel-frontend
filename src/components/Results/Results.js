@@ -1,4 +1,3 @@
-// The component that controls the rendering of cards on pages and their amount
 import React from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import '../NewsCard/NewsCard.css';
@@ -6,7 +5,7 @@ import './Results.css';
 
 const Results = ({loggedIn, articles, onSave, savedArticles, keyword}) => {
 
-  // for each click render only 3 articles
+  // For each click render only 3 articles
   const [showMoreNews, setShowMoreNews] = React.useState(0);
   const ARTICLES_RENDERED = 3;
   const handleShowMore = () => {
@@ -29,7 +28,6 @@ const Results = ({loggedIn, articles, onSave, savedArticles, keyword}) => {
               loggedIn={loggedIn}
               onSave={onSave}
               savedArticles={savedArticles}
-              // keyword={keyword}
            />
             )
       })}

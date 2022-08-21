@@ -45,8 +45,6 @@ const Register = (props) => {
       <PopupWithForm
         name='register'
         popupTitle='Sign up'
-        // linkPath='/signin'
-        // linkText='or Sign in'
         isOpen={isOpen}
         onClose={onClose}
         onOutsideClick={onOutsideClick}

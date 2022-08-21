@@ -1,4 +1,4 @@
-// The Card component -that relate to: NewsCard and SavedCard
+// The Card component - used for: NewsCard and SavedCard components 
 import React from "react";
 import './Card.css';
 
@@ -14,12 +14,10 @@ const Card = ({card, children}) => {
           className='card__image'
           alt={card.title}
           src={card.urlToImage}
-          // src={NewsCard.link}
-          // alt={NewsCard.name}
         />
         <div className='card__content'>
           <div className='card__date'>{formatedDate}</div>
-          <a href={card.url} className='card__link' target='_blank'>
+          <a href={card.url} className='card__link' target='_blank' rel='noreferrer'>
             <h2 className='card__title'>{card.title}</h2>
             <p className='card__text'>{card.content}</p>
           </a>

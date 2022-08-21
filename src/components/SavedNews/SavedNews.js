@@ -1,7 +1,6 @@
-// the components of the page with saved article page
+// The components of the page with saved article page
 import React from "react";
 import SavedCard from "../SavedCard/SavedCard";
-// import '../SavedCard/SavedCard.css';
 import './SavedNews.css';
 import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
@@ -16,16 +15,12 @@ const SavedNews = ({ loggedIn, onLogin, onLogout, savedArticles, onDelete, curre
       currentUser={currentUser}
     /> 
     <SavedNewsHeader savedArticles={savedArticles} currentUser={currentUser}/>
-
     <section className='saved-news'>
-      {/* {children} */}
        <ul className='saved-cards__grid'>
         {savedArticles.map((article) => {
-
         return (
           <SavedCard 
           card={article}
-         
           key={article._id}
           onDelete={onDelete}
         />
@@ -33,7 +28,6 @@ const SavedNews = ({ loggedIn, onLogin, onLogout, savedArticles, onDelete, curre
       })}
       </ul> 
       </section>
-   
   </>
   );
 }

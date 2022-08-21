@@ -86,7 +86,6 @@
   .saved-news-header {
     max-width: 561px;
     margin: 0;
-    /* margin-left: 40px; */
     margin-bottom: 16px;
   }
 }
@@ -97,7 +96,6 @@
     margin: 0;
     margin-bottom: 32px;
     padding: 0 16px;
-    /* margin: 0 16px 32px 16px; */
   }
 
   .saved-news__title {
