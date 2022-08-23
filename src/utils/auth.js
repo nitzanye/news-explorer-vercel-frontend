@@ -8,7 +8,7 @@ const BASE_URL = 'https://api.news-nitzan.students.nomoredomainssbs.ru';
 const handleResponse = (res) => 
   res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
 
-export const register = (email, password, name) => {
+export const register = ( email, password, name ) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
@@ -19,7 +19,7 @@ export const register = (email, password, name) => {
   }).then(handleResponse);
 };
 
-export const authorize = (email, password) => {
+export const authorize = ( email, password ) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {

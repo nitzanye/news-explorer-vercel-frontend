@@ -46,6 +46,7 @@
 }
 
 .tooltip {
+  all: unset;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: 500;

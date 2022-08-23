@@ -17,7 +17,7 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [name, setName] = React.useState('');
+  const [currentName, setCurrentName] = React.useState({} || '');
 
   const [isLoginPopupOpen, setIsLoginPopupOpen] = React.useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = React.useState(false);
@@ -63,7 +63,7 @@ const getArticles = useCallback(() => {
           })
         );
       })
-        .catch(() => setSavedArticles([]));
+        .catch((err) => console.log(`Error.....: ${err}`));
       }, [loggedIn]);
   
   React.useEffect(() => {
@@ -77,6 +77,7 @@ const getArticles = useCallback(() => {
       mainApi
         .deleteArticle(isSavedAlready._id)
         .then(() => getArticles())
+        .catch((err) => console.log(`Error......${err}`));
     } else {
       mainApi.createNewArticle({
         keyword: article.keyword,
@@ -87,9 +88,9 @@ const getArticles = useCallback(() => {
         link: article.url,
         image: article.urlToImage,
       })
-      .then(() => getArticles())
-      .catch((err) => console.log(`Error......${err}`));
-    }  
+    .then(() => getArticles())
+    .catch((err) => console.log(`Error......${err}`));
+    }
   }
 
   const handleDeleteArticle = (articleId) => {
@@ -107,9 +108,8 @@ const getArticles = useCallback(() => {
       auth
         .checkUerToken(token)
         .then((res) => {
-          setName(res.name);
+          setCurrentName(res.name);
           setLoggedIn(true);
-          navigate('/');
         })
         .catch((err) => console.log(`Error.....: ${err}`));
     }
@@ -120,7 +120,7 @@ const getArticles = useCallback(() => {
     navigate('/');
     setLoggedIn(false);
     setCurrentUser({});
-    setName('Signin');
+    setCurrentName('Signin');
   };
 
   const handleSearchSubmit = (query) => {
@@ -142,7 +142,7 @@ const getArticles = useCallback(() => {
 
   const popupOpened = isLoginPopupOpen || isRegisterPopupOpen || isInfoTooltipOpen;
   
-  const handleUserRegister = (email, password, name) => {
+  const handleSignup = ({ email, password, name }) => {
     if (!email || !password || !name) {
       return console.log('Error.....');
     }
@@ -157,17 +157,18 @@ const getArticles = useCallback(() => {
       })
   };
 
-  const handleUserLogin = (email, password) => {
+  const handleSignin = ({ email, password }) => {
     if (!email || !password) {
       return console.log('Error.....');
     }
     auth
     .authorize(email, password)
     .then((data) => {
+      
       if (data.token) {
         localStorage.setItem('token', data.token);
         setLoggedIn(true);
-        setName(name);
+        setCurrentName(currentName);
         closeAllPopups();
         return data;
       }
@@ -188,26 +189,6 @@ const getArticles = useCallback(() => {
     setIsInfoTooltipOpen(false);
   };
 
-  const handleClickOutside = (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closeAllPopups();
-    }
-  };
-
-  React.useEffect(() => {
-    const handleEscape = (evt) => {
-      if (evt.key === 'Escape') {
-        closeAllPopups();
-      }
-    };
-    
-    popupOpened && document.addEventListener('keydown', handleEscape);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [popupOpened]);
-
   const switchPopup = () => {
     setIsLoginPopupOpen(!isLoginPopupOpen);
     setIsRegisterPopupOpen(!isRegisterPopupOpen);
@@ -227,7 +208,7 @@ const getArticles = useCallback(() => {
                 loggedIn={loggedIn}
                 onLogin={handleLogin}
                 onLogout={handleLogOut}
-                onRegister={handleUserRegister}
+                onRegister={handleSignup}
                 popupOpened={popupOpened}
                 isDataLoading={isDataLoading}
                 searchSubmit={searchSubmit}
@@ -249,7 +230,6 @@ const getArticles = useCallback(() => {
                   loggedIn={loggedIn}
                   onLogin={handleLogin}
                   onLogout={handleLogOut}
-
                   currentUser={currentUser}
                   savedArticles={savedArticles}
                   onDelete={handleDeleteArticle}
@@ -267,27 +247,24 @@ const getArticles = useCallback(() => {
         </Routes>
 
         <Login 
-          onSubmit={handleUserLogin} 
+          handleSignin={handleSignin} 
           loggedIn={loggedIn} 
           onClose={closeAllPopups} 
           isOpen={isLoginPopupOpen} 
-          onOutsideClick={handleClickOutside}
           onSwitchPopup={switchPopup}
         />
         
         <Register 
-          onSubmit={handleUserRegister} 
+          handleSignup={handleSignup} 
           loggedIn={loggedIn} 
           onClose={closeAllPopups} 
           isOpen={isRegisterPopupOpen}
-          onOutsideClick={handleClickOutside}
           onSwitchPopup={switchPopup}
         />
         
         <InfoTooltip 
           onClose={closeAllPopups}
           isOpen={isInfoTooltipOpen}
-          onOutsideClick={handleClickOutside}
           onLoginClick={handleLogin}
           
         />

@@ -2,7 +2,7 @@ import React from 'react';
 import './NewsCard.css';
 import Card from '../Card/Card';
 
-const NewsCard = ({ card, loggedIn, onSave, savedArticles }) => {
+const NewsCard = ({ card, loggedIn, onSave, savedArticles, onLogin}) => {
   const [isHovering, setIsHovering] = React.useState(false);
 
   const isSaved = savedArticles.some((savedArticle) => savedArticle.url === card.url);
@@ -27,14 +27,15 @@ const NewsCard = ({ card, loggedIn, onSave, savedArticles }) => {
           className={loggedIn && isSaved ? 'card__button-save_active' : 'card__button-save'}
           onMouseOver={(e) => handleMouseOver(e.currentTarget.key)}
           onMouseOut={(e) => handleMouseOut(e.currentTarget.key)}
-          onClick={handleSave}
+          onClick={loggedIn ? handleSave : onLogin}
         />
         {!loggedIn && (
-          <div 
+          <button
             className={`tooltip ${isHovering ? 'tooltip-visible' : ''}`}
+            onClick={onLogin}
           >
           Sign in to save articles
-          </div>
+          </button>
         )}
     </Card>
   );

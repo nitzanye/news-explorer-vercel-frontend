@@ -48,7 +48,9 @@ const Main = ({
           articles={articles} 
           onSave={onSave} 
           savedArticles={savedArticles}
-          keyword={keyword} />)
+          keyword={keyword} 
+          onLogin={onLogin}
+          />)
         }
 
       <About />

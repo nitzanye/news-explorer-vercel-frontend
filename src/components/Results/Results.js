@@ -3,7 +3,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import '../NewsCard/NewsCard.css';
 import './Results.css';
 
-const Results = ({loggedIn, articles, onSave, savedArticles, keyword}) => {
+const Results = ({loggedIn, articles, onSave, savedArticles, keyword, onLogin}) => {
 
   // For each click render only 3 articles
   const [showMoreNews, setShowMoreNews] = React.useState(0);
@@ -28,6 +28,7 @@ const Results = ({loggedIn, articles, onSave, savedArticles, keyword}) => {
               loggedIn={loggedIn}
               onSave={onSave}
               savedArticles={savedArticles}
+              onLogin={onLogin}
            />
             )
       })}
