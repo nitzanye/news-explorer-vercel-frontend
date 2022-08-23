@@ -15,7 +15,7 @@ const PopupWithForm = ({ name, formName, onSubmit, onSwitchPopup, redirectText, 
 
   return(
     <Popup isOpen={isOpen} name={name} onClose={onClose}>
-      <div className='popup__window' >
+      <div className='popup__container' >
         <h2 className='popup__title'>{popupTitle}</h2>
         <form onSubmit={handleSubmit} className='popup__form' name={formName}>
           <h3 className='form__title'>Email</h3>
