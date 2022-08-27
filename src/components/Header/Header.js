@@ -1,7 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-// import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 import Navigation from "../Navigation/Navigation";
 import './Header.css';
 
@@ -11,6 +9,7 @@ const Header = (props) => {
     onLogout, 
     onLogin, 
     popupOpened,
+    currentUser,
   } = props;
 
 
@@ -59,6 +58,7 @@ const Header = (props) => {
         onLogout={onLogout}
         isDropDownOpen={isDropDownOpen}
         lightHeader={lightHeader}
+        currentUser={currentUser}
       />
       </div> 
     </header>

@@ -3,10 +3,26 @@ import SearchForm from "../SearchForm/SearchForm";
 import './Main.css';
 import  Header from '../Header/Header';
 import About from "../About/About";
-import NewsCardList from "../NewsCardList/NewsCardList";
 import BackgroundWrraper from "../BackgroundWrraper/BackgroundWrraper";
+import Results from "../Results/Results";
+import Preloader from '../Preloader/Preloader';
+import NoResults from "../NoResults/NoResults";
 
-const Main = ({ onSubmit, loggedIn, onLogin, onLogout, onRegister, popupOpened, searchSubmit }) => {
+const Main = ({ 
+  onSubmit, 
+  loggedIn, 
+  articles, 
+  onLogin, 
+  onLogout, 
+  onRegister, 
+  popupOpened, 
+  searchSubmit, 
+  isDataLoading, 
+  onSave, 
+  savedArticles,
+  keyword, 
+  currentUser,
+  }) => {
   return (
     <main>
       <BackgroundWrraper>
@@ -16,31 +32,30 @@ const Main = ({ onSubmit, loggedIn, onLogin, onLogout, onRegister, popupOpened, 
           onLogout={onLogout}
           onRegister={onRegister}
           popupOpened={popupOpened}
+          currentUser={currentUser}
         />
         <SearchForm  onSubmit={onSubmit} />
       </BackgroundWrraper>
-      {searchSubmit && <NewsCardList loggedIn={loggedIn}/>}
+      { isDataLoading ?
+        <Preloader /> : <></>
+      }
+      {searchSubmit && !(articles.length > 0) 
+        ? 
+        (<NoResults />)
+        : 
+        (searchSubmit && <Results   
+          loggedIn={loggedIn} 
+          articles={articles} 
+          onSave={onSave} 
+          savedArticles={savedArticles}
+          keyword={keyword} 
+          onLogin={onLogin}
+          />)
+        }
+
       <About />
     </main>
   );
 }
 
 export default Main;
-
-//
-// return (
-//   <main>
-//     <div className='bg-wrraper'>
-//       <Header 
-//         loggedIn={loggedIn}
-//         onLogin={onLogin}
-//         onLogout={onLogout}
-//         onRegister={onRegister}
-//         popupOpened={popupOpened}
-//       />
-//       <SearchForm  onSubmit={onSubmit} />
-//     </div>
-//     {searchSubmit && <NewsCardList loggedIn={loggedIn}/>}
-//     <About />
-//   </main>
-// );

@@ -1,16 +1,15 @@
-// The news card component
 import React from 'react';
 import './NewsCard.css';
-// import card from '../data/card';
+import Card from '../Card/Card';
 
-const NewsCard = (props) => {
-  const {card, loggedIn} = props;
+const NewsCard = ({ card, loggedIn, onSave, savedArticles, onLogin}) => {
   const [isHovering, setIsHovering] = React.useState(false);
-  const [isClicked, setIsButtonClicked ] = React.useState(false);
 
-  const handleSaveClick = () => {
-    setIsButtonClicked(true) 
-}
+  const isSaved = savedArticles.some((savedArticle) => savedArticle.url === card.url);
+  
+  const handleSave = () => {
+    onSave(card)
+  }
   
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -21,40 +20,24 @@ const NewsCard = (props) => {
 }
 
   return (
-      <li 
-        className='card__container'
-        key={card._id}
-        // key={article._id}
-      >
+    <Card card={card} >
         <div className='card__keyword_type_hidden'>{card.keyword}</div>
         <button 
           type='button'
-          className={loggedIn && isClicked ? 'card__button-save_active' : 'card__button-save'}
+          className={loggedIn && isSaved ? 'card__button-save_active' : 'card__button-save'}
           onMouseOver={(e) => handleMouseOver(e.currentTarget.key)}
           onMouseOut={(e) => handleMouseOut(e.currentTarget.key)}
-          onClick={handleSaveClick}
+          onClick={loggedIn ? handleSave : onLogin}
         />
         {!loggedIn && (
-          <div 
+          <button
             className={`tooltip ${isHovering ? 'tooltip-visible' : ''}`}
+            onClick={onLogin}
           >
           Sign in to save articles
-          </div>
+          </button>
         )}
-        <img 
-          className='card__image'
-          alt='img'
-          src={card.img}
-          // src={NewsCard.link}
-          // alt={NewsCard.name}
-        />
-        <div className='card__content'>
-          <div className='card__date'>{card.date}</div>
-          <h2 className='card__title'>{card.title}</h2>
-          <p className='card__text'>{card.text}</p>
-          <p className='card__source'>{card.source}</p>
-        </div>
-      </li>
+    </Card>
   );
  }
 

@@ -1,24 +1,23 @@
 // The search form for the user to enter their search request
 
 import React from "react";
-// import { Link } from 'react-router-dom';
 import './SearchForm.css';
 
 const SearchForm = ({ onSubmit }) => {
   const [placeholder, setPlaceHolder] = React.useState('Enter topic');
-  const [textField, setTextField] = React.useState('');
+  const [query, setQuery] = React.useState('');
   const [isButtonClicked, setIsButtonClicked ] = React.useState(false);
   const [isButtonHovered, setIsButtonHovered] = React.useState(false);
 
-  const handleSearchChange = (e) => setTextField(e.target.value);  
+  const handleSearchChange = (e) => setQuery(e.target.value);  
   const searchButtonClassName = `search__button ${isButtonHovered ? 'search__button-over' : ''} ${isButtonClicked ? 'search__button-active' : ''}`;
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (textField === '') {
+    if (query === '') {
       return setPlaceHolder('Text is not entered');
     }
-    onSubmit();
+    onSubmit(query);
   }
   
   return (
@@ -28,17 +27,14 @@ const SearchForm = ({ onSubmit }) => {
       <form
         className='search__container'
          onSubmit={handleSearchSubmit}
-      //   name={name}
-      //   noValidate
       >
           <div className='search__wrapper'>
               <input
                 type='text'
                 className='search__field'
                 placeholder={placeholder}
-                value={textField || ''}
+                value={query}
                 onChange={handleSearchChange}
-                // required
               />
               <button
                 type='submit'
