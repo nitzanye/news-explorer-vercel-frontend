@@ -64,11 +64,11 @@ A responsive website made in ReactJS
 ## Run locally 
 
 **Clone the project**
-````$ git clone https://github.com/nitzanye/news-explorer-frontend.git
+````$ git clone https://github.com/nitzanye/news-explorer-frontend.git````
 
 **Install**
-````$ cd news-explorer-frontend
-````$ npm i
+````$ cd news-explorer-frontend````
+````$ npm i````
 
 **Launch**
-````$ npm run start
+````$ npm run start````
