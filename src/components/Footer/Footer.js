@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import githubIcon from '../../images/githubIcon.svg';
-import facebookIcon from '../../images/facebookIcon.svg';
+import linkedin from '../../images/linkedinIcon.svg';
 
 const Footer = () => {
   return (
@@ -24,8 +24,8 @@ const Footer = () => {
             <a className='footer__social-icon' href='https://github.com/nitzanye'>
               <img src={githubIcon} alt='GitHub Icon' />
             </a>
-            <a className='footer__social-icon' href='https://www.facebook.com/nitzanye'>
-              <img src={facebookIcon} alt='Facebook Icon' />
+            <a className='footer__social-icon' href='https://www.linkedin.com/in/nitzan-smulevici/'>
+              <img src={linkedin} alt='linkedin Icon' width='20px'/>
             </a>
           </div>
         </nav>

@@ -55,7 +55,7 @@
   border: none;
   border-radius: 100px;
   color: rgba(255, 255, 255, 1);
-  padding: 20px 56px; 
+  padding: 20px 58px; 
   margin: 0;
   margin-left: -168px;
 }
@@ -97,7 +97,7 @@
   }
 
   .search__button {
-    padding: 16px 52px; 
+    padding: 16px 54px; 
     margin-left: -159px;
   }
 }

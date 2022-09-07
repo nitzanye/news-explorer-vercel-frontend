@@ -51,7 +51,7 @@
   font-size: 18px;
   line-height: 24px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   box-sizing: border-box;
   padding: 0;
@@ -77,12 +77,10 @@
 }
 
 .nav__button-user {
-  max-width: 122px;
   padding: 0 19px;
-}
-
-.nav__logout {
-  padding-left: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
@@ -101,10 +99,6 @@
     height: 40px;
     max-width: 152px;
     bottom: 11px;
-  }
-
-  .nav__button-user {
-    max-width: 100px;
   }
 }
 
@@ -185,7 +179,6 @@
   }
 
   .nav__button-user {
-    max-width: 100px;
     padding: 16px 100px;
     margin-bottom: 0;
     
