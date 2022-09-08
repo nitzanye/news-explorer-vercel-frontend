@@ -1,5 +1,7 @@
 # News Explorer App 
 
+![appnewscompress](https://user-images.githubusercontent.com/93406243/189202113-cb665b83-96e7-4058-8fbc-e9c9f5177f17.gif)
+
 ## Overview
 
 - [Live Web App](https://www.news-nitzan.students.nomoredomainssbs.ru/)
