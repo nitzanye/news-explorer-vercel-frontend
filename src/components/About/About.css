@@ -14,7 +14,6 @@
   box-sizing: border-box;
   padding: 0;
   width: 100%;
-  /* max-width: 464px; */
   height: 464px;
   width: 464px;
   border-radius: 50%;
@@ -55,7 +54,6 @@
   }
 
   .about__img {
-    /* max-width: 232px; */
     width: 232px;
     height: 232px;
     margin: 21px 32px 0 0;
@@ -97,7 +95,6 @@
    }
   
   .about__img {
-    /* max-width: 272px; */
     height: 272px;
     width: 272px;
   }
