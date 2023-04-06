@@ -8,7 +8,6 @@ const InfoTooltip = (props) => {
 
   return (
     <Popup
-      // name='tooltip'
       name={name}
       isOpen={isOpen}
       onClose={onClose}
