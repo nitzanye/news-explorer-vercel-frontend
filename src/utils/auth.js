@@ -1,8 +1,3 @@
-// const BASE_URL = 
-// process.env.NODE_ENV === 'production'
-// ? 'https://api.news-nitzan.students.nomoredomainssbs.ru'
-// : 'http://localhost:3000';
-
 const BASE_URL = 'https://api.news-nitzan.students.nomoredomainssbs.ru';
 
 const handleResponse = (res) => 
