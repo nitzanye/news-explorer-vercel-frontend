@@ -16,6 +16,9 @@ const Footer = () => {
             <Link to='/' className='footer__link'>
               Home
             </Link> 
+            <a className='footer__link footer__link-last' href='https://practicum.com'>
+               Practicum by Yandex
+            </a>
           </div>
           <div className='footer__social-items'>
             <a className='footer__social-icon' href='https://github.com/nitzanye'>
