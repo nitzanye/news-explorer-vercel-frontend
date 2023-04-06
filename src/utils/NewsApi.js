@@ -1,6 +1,3 @@
-// Contain a description of requests to the newsapi.org service
-// For key - use Your API key / Alternatively you can provide this via the X-Api-Key HTTP header.
-
 class NewsApi {
   constructor({ baseUrl, key }) {
     this._baseUrl = baseUrl;
@@ -21,10 +18,8 @@ class NewsApi {
     .then(this._checkResStatus);
   };
 }
-     // proxy practicum service 
+  
   const BASE_URL = 'https://nomoreparties.co/news/v2';
-  // const BASE_URL = 'https://newsapi.org/v2';
-
   const KEY = '23fd86a148f34abf985d1cb9ad256556';
 
   export default new NewsApi({
