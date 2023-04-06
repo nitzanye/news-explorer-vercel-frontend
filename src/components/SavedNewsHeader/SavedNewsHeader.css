@@ -60,7 +60,6 @@
 @media screen and (max-width: 850px) {
   .saved-news-header {
     max-width: 712px;
-    /* margin: 0 16px 32px 40px; */
     padding: 0 16px 32px 40px;
     margin: 0;
   }
