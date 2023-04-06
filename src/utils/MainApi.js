@@ -54,11 +54,6 @@ deleteArticle = (articleId) => {
 
 const BASE_URL = 'https://api.news-nitzan.students.nomoredomainssbs.ru';
 
-// const BASE_URL = 
-// process.env.NODE_ENV === 'production'
-// ? 'https://api.news-nitzan.students.nomoredomainssbs.ru'
-// : 'http://localhost:3000';
-
 export default new MainApi({
   baseUrl: BASE_URL,
 });
