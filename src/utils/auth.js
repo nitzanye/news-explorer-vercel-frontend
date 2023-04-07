@@ -1,42 +1,45 @@
-const BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://news-explorer-vercel-backend.vercel.app'
-    : 'http://localhost:3000';
-
-// const BASE_URL = 'https://news-explorer-vercel-backend.vercel.app';
+import axios from 'axios';
+import BASE_URL from './configuration';
 
 const handleResponse = (res) =>
-  res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
+  res.status === 200 ? res.data : Promise.reject(`Error ${res.status}`);
 
-export const register = (email, password, name) => {
-  return fetch(`${BASE_URL}/signup`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password, name }),
-  }).then(handleResponse);
+export const register = async (email, password, name) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/signup`, {
+      email,
+      password,
+      name,
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
 };
 
-export const authorize = (email, password) => {
-  return fetch(`${BASE_URL}/signin`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  }).then(handleResponse);
+export const authorize = async (email, password) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/signin`, {
+      email,
+      password,
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
 };
 
-export const checkUerToken = (token) => {
-  return fetch(`${BASE_URL}/users/me`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-  }).then(handleResponse);
+export const checkUerToken = async (token) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/users/me`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
 };

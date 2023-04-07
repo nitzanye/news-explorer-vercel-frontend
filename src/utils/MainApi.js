@@ -1,63 +1,67 @@
-class MainApi {
-  constructor({ baseUrl }) {
-    this._baseUrl = baseUrl;
+import axios from 'axios';
+import BASE_URL from './configuration';
+
+const handleResponse = (res) =>
+  res.status === 200 || 201 ? res.data : Promise.reject(`Error ${res.status}`);
+
+// Return user information - about the current user (email and username)
+export const getUserData = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/users/me`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
   }
+};
 
-  _checkResStatus = (res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  };
-
-  // Return user information - about the current user (email and username)
-  getUserData = () => {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'Get',
+//Return all articles saved by the current user
+export const getSavedArticles = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/articles`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-    }).then(this._checkResStatus);
-  };
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
+};
 
-  // Return all articles saved by the current user
-  getSavedArticles = () => {
-    return fetch(`${this._baseUrl}/articles`, {
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    }).then(this._checkResStatus);
-  };
+// Save new article request
+export const createNewArticle = async (article) => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/articles`,
+      JSON.stringify(article),
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
+};
 
-  // Save new article request
-  createNewArticle = (article) => {
-    return fetch(`${this._baseUrl}/articles`, {
-      method: 'POST',
+// Delete saved article request - delete the stored article by _id
+export const deleteArticle = async (articleId) => {
+  try {
+    const response = axios.delete(`${BASE_URL}/articles/${articleId}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(article),
-    }).then(this._checkResStatus);
-  };
-
-  // Delete saved article request - delete the stored article by _id
-  deleteArticle = (articleId) => {
-    return fetch(`${this._baseUrl}/articles/${articleId}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
-      },
-    }).then(this._checkResStatus);
-  };
-}
-
-// const BASE_URL = 'https://news-explorer-vercel-backend.vercel.app';
-
-const BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://news-explorer-vercel-backend.vercel.app'
-    : 'http://localhost:3000';
-
-export default new MainApi({
-  baseUrl: BASE_URL,
-});
+    });
+    return handleResponse(response);
+  } catch (error) {
+    return Promise.reject(`Error ${error.response.status}`);
+  }
+};
