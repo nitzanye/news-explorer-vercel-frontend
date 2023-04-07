@@ -1,4 +1,7 @@
-const BASE_URL = 'https://news-explorer-vercel-backend.vercel.app/';
+const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://news-explorer-vercel-backend.vercel.app'
+    : 'http://localhost:3000';
 
 const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
