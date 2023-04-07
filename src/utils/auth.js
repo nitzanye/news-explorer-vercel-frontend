@@ -1,9 +1,9 @@
-const BASE_URL = 'https://api.news-nitzan.students.nomoredomainssbs.ru';
+const BASE_URL = 'https://news-explorer-vercel-backend.vercel.app/';
 
-const handleResponse = (res) => 
+const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
 
-export const register = ( email, password, name ) => {
+export const register = (email, password, name) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {
@@ -14,11 +14,11 @@ export const register = ( email, password, name ) => {
   }).then(handleResponse);
 };
 
-export const authorize = ( email, password ) => {
+export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {
-      Accept: 'application/json', 
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),

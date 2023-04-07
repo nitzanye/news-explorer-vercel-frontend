@@ -10,19 +10,21 @@ class NewsApi {
 
   getRequestNews = (query) => {
     const currentDate = new Date();
-    const weekAgo= new Date(new Date().setDate(new Date().getDate() - 7));
+    const weekAgo = new Date(new Date().setDate(new Date().getDate() - 7));
 
-    return fetch(`${this._baseUrl}/everything?q=${query}&from=${weekAgo}&to=${currentDate}&pageSize=100&apiKey=${this._key}`, {
-      method: 'GET',
-    })
-    .then(this._checkResStatus);
+    return fetch(
+      `${this._baseUrl}/everything?q=${query}&from=${weekAgo}&to=${currentDate}&pageSize=100&apiKey=${this._key}`,
+      {
+        method: 'GET',
+      }
+    ).then(this._checkResStatus);
   };
 }
-  
-  const BASE_URL = 'https://nomoreparties.co/news/v2';
-  const KEY = '23fd86a148f34abf985d1cb9ad256556';
 
-  export default new NewsApi({
-    baseUrl: BASE_URL,
-    key: KEY,
-  });
+const BASE_URL = 'https://nomoreparties.co/news/v2';
+const KEY = '23fd86a148f34abf985d1cb9ad256556';
+
+export default new NewsApi({
+  baseUrl: BASE_URL,
+  key: KEY,
+});
