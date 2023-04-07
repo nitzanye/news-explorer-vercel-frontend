@@ -18,8 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint .",
-    "deploy": "npm run build && scp -r -i c://Users/Nitzan/.ssh/azure-news-explorer_key.pem ./build/* nitzanye@news-nitzan.students.nomoredomainssbs.ru:/home/nitzanye/frontend"
+    "lint": "npx eslint ."
   },
   "eslintConfig": {
     "extends": [

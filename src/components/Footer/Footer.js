@@ -6,7 +6,7 @@ import linkedin from '../../images/linkedinIcon.svg';
 
 const Footer = () => {
   return (
-    <footer className='footer'> 
+    <footer className='footer'>
       <section className='footer__section'>
         <p className='footer__copyright'>
           &copy; {new Date().getFullYear()} News Explorer
@@ -15,23 +15,26 @@ const Footer = () => {
           <div className='footer__links'>
             <Link to='/' className='footer__link'>
               Home
-            </Link> 
-            <a className='footer__link footer__link-last' href='https://practicum.com'>
-               Practicum by Yandex
-            </a>
+            </Link>
           </div>
           <div className='footer__social-items'>
-            <a className='footer__social-icon' href='https://github.com/nitzanye'>
+            <a
+              className='footer__social-icon'
+              href='https://github.com/nitzanye'
+            >
               <img src={githubIcon} alt='GitHub Icon' />
             </a>
-            <a className='footer__social-icon' href='https://www.linkedin.com/in/nitzan-smulevici/'>
-              <img src={linkedin} alt='linkedin Icon' width='20px'/>
+            <a
+              className='footer__social-icon'
+              href='https://www.linkedin.com/in/nitzan-smulevici/'
+            >
+              <img src={linkedin} alt='linkedin Icon' width='20px' />
             </a>
           </div>
         </nav>
       </section>
     </footer>
   );
-}
+};
 
 export default Footer;
