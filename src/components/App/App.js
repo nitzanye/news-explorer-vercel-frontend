@@ -52,24 +52,22 @@ const App = () => {
       getSavedArticles()
         .then((articlesList) => {
           setSavedArticles(
-            articlesList.length > 0
-              ? articlesList.map((article) => {
-                  return {
-                    _id: article._id,
-                    keyword: article.keyword,
-                    title: article.title,
-                    content: article.text,
-                    publishedAt: article.date,
-                    source: { name: article.source?.name },
-                    url: article.link,
-                    urlToImage: article.image,
-                    owner: article.owner,
-                  };
-                })
-              : []
+            articlesList.map((article) => {
+              return {
+                _id: article._id,
+                keyword: article.keyword,
+                title: article.title,
+                content: article.text,
+                publishedAt: article.date,
+                source: { name: article.source },
+                url: article.link,
+                urlToImage: article.image,
+                owner: article.owner,
+              };
+            })
           );
         })
-        .catch((err) => console.log(`Error fetching articles: ${err}`));
+        .catch((err) => console.log(`Error.....: ${err}`));
   }, [loggedIn]);
 
   useEffect(() => {
