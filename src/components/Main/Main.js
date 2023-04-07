@@ -1,32 +1,31 @@
-import React from "react";
-import SearchForm from "../SearchForm/SearchForm";
-import './Main.css';
-import  Header from '../Header/Header';
-import About from "../About/About";
-import BackgroundWrraper from "../BackgroundWrraper/BackgroundWrraper";
-import Results from "../Results/Results";
+import React from 'react';
+import SearchForm from '../SearchForm/SearchForm';
+import Header from '../Header/Header';
+import About from '../About/About';
+import BackgroundWrraper from '../BackgroundWrraper/BackgroundWrraper';
+import Results from '../Results/Results';
 import Preloader from '../Preloader/Preloader';
-import NoResults from "../NoResults/NoResults";
+import NoResults from '../NoResults/NoResults';
 
-const Main = ({ 
-  onSubmit, 
-  loggedIn, 
-  articles, 
-  onLogin, 
-  onLogout, 
-  onRegister, 
-  popupOpened, 
-  searchSubmit, 
-  isDataLoading, 
-  onSave, 
+const Main = ({
+  onSubmit,
+  loggedIn,
+  articles,
+  onLogin,
+  onLogout,
+  onRegister,
+  popupOpened,
+  searchSubmit,
+  isDataLoading,
+  onSave,
   savedArticles,
-  keyword, 
+  keyword,
   currentUser,
-  }) => {
+}) => {
   return (
     <main>
       <BackgroundWrraper>
-        <Header 
+        <Header
           loggedIn={loggedIn}
           onLogin={onLogin}
           onLogout={onLogout}
@@ -34,28 +33,27 @@ const Main = ({
           popupOpened={popupOpened}
           currentUser={currentUser}
         />
-        <SearchForm  onSubmit={onSubmit} />
+        <SearchForm onSubmit={onSubmit} />
       </BackgroundWrraper>
-      { isDataLoading ?
-        <Preloader /> : <></>
-      }
-      {searchSubmit && !(articles.length > 0) 
-        ? 
-        (<NoResults />)
-        : 
-        (searchSubmit && <Results   
-          loggedIn={loggedIn} 
-          articles={articles} 
-          onSave={onSave} 
-          savedArticles={savedArticles}
-          keyword={keyword} 
-          onLogin={onLogin}
-          />)
-        }
+      {isDataLoading ? <Preloader /> : <></>}
+      {searchSubmit && !(articles.length > 0) ? (
+        <NoResults />
+      ) : (
+        searchSubmit && (
+          <Results
+            loggedIn={loggedIn}
+            articles={articles}
+            onSave={onSave}
+            savedArticles={savedArticles}
+            keyword={keyword}
+            onLogin={onLogin}
+          />
+        )
+      )}
 
       <About />
     </main>
   );
-}
+};
 
 export default Main;
