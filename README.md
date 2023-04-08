@@ -4,11 +4,11 @@
 
 ## Overview
 
-- [Live Web App](https://www.news-nitzan.students.nomoredomainssbs.ru/)
+- [Live Web App](https://news-explorer-vercel-frontend.vercel.app/)
 - [About the project](#about-the-project)
 - [Features of the App](#features-of-the-app)
 - [Technologies Used](#technologies-used)
-- [Backend Repository](https://github.com/nitzanye/news-explorer-api)
+- [Backend Repository](https://github.com/nitzanye/news-explorer-vercel-backend)
 - [Run locally](#Run-locally)
 
 ## About the project
@@ -57,19 +57,19 @@ A responsive website made in ReactJS
 
 ## Live Web App
 
-[Live deployment](https://www.news-nitzan.students.nomoredomainssbs.ru/)
+[Live deployment](https://news-explorer-vercel-frontend.vercel.app/)
 
 ## Backend Repository
 
-[Backend Repository](https://github.com/nitzanye/news-explorer-api)
+[Backend Repository](https://github.com/nitzanye/news-explorer-vercel-backend)
 
 ## Run locally 
 
 **Clone the project** <br />
-````$ git clone https://github.com/nitzanye/news-explorer-frontend.git````
+````$ git clone https://github.com/nitzanye/news-explorer-vercel-frontend.git````
 
 **Install** <br />
-````$ cd news-explorer-frontend```` <br />
+````$ cd news-explorer-vercel-frontend```` <br />
 ````$ npm i````
 
 **Launch** <br />
