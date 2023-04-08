@@ -1,8 +1,10 @@
+@import url('../../utils/variables.css');
+
 .card__container {
-  cursor: pointer; 
+  cursor: pointer;
   height: 576px;
   max-width: 400px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--color-white);
   border-radius: 16px;
   position: relative;
 }
@@ -28,21 +30,15 @@
 }
 
 .card__date {
-  font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  color: rgba(182, 188, 191, 1);
+  font: normal normal 400 18px/24px var(--font-family-second);
+  color: var(--color-gray);
   margin: 0;
   padding: 0;
 }
 
 .card__title {
-  font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 30px;
-  color: rgba(26, 27, 34, 1);
+  font: normal normal 400 26px/30px var(--font-family-second);
+  color: var(--color-black);
   margin: 12px 0 16px;
   min-height: 60px;
   display: -webkit-box;
@@ -53,11 +49,8 @@
 }
 
 .card__text {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: rgba(26, 27, 34, 1);
+  font: normal normal 400 16px/22px var(--font-family);
+  color: var(--color-black);
   margin: 0;
   padding: 0;
   min-height: 110px;
@@ -68,11 +61,8 @@
 }
 
 .card__source {
-  font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  color: rgba(182, 188, 191, 1);
+  font: normal normal 700 16px/20px var(--font-family-second);
+  color: var(--color-gray);
   text-transform: uppercase;
   margin: 18px 0 0;
   letter-spacing: 0.4px;
@@ -85,7 +75,7 @@
 @media screen and (max-width: 800px) {
   .card__container {
     height: 420px;
-    max-width: 224px;  
+    max-width: 224px;
     margin: 0 auto;
   }
 
@@ -109,7 +99,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-
   }
 
   .card__text {
@@ -126,9 +115,9 @@
 
 @media screen and (max-width: 500px) {
   .card__container {
-      margin: 0 16px;
-      height: 440px;
-      max-width: 288px;
+    margin: 0 16px;
+    height: 440px;
+    max-width: 288px;
   }
 
   .card__image {
@@ -155,7 +144,7 @@
   }
 
   .card__text {
-   min-height: 88px;
+    min-height: 88px;
   }
 
   .card__source {

@@ -1,8 +1,11 @@
 import axios from 'axios';
 import BASE_URL from './configuration';
+import { SUCCESS_OK, SUCCESS_CREATED } from './variables';
 
 const handleResponse = (res) =>
-  res.status === 200 || 201 ? res.data : Promise.reject(`Error ${res.status}`);
+  res.status === SUCCESS_OK || SUCCESS_CREATED
+    ? res.data
+    : Promise.reject(`Error ${res.status}`);
 
 // Return user information - about the current user (email and username)
 export const getUserData = async () => {

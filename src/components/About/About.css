@@ -1,3 +1,5 @@
+@import url('../../utils/variables.css');
+
 .about {
   display: flex;
   width: 100%;
@@ -5,7 +7,7 @@
   margin: 0 auto;
   padding: 0;
   padding-top: 80px;
-  padding-bottom: 80px;  
+  padding-bottom: 80px;
   position: relative;
   box-sizing: border-box;
 }
@@ -24,33 +26,25 @@
   display: flex;
   flex-direction: column;
   color: rgba(26, 27, 34, 1);
-  margin-left: 56px;
-  margin-top: 51px;
-
+  margin: 51px 0 0 56px;
 }
 
 .about__title {
-  font-family: 'Roboto Slab',Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 40px;
-  line-height: 40px;
+  font: normal normal 400 40px/40px var(--font-family);
   margin: 0;
   padding: 0;
 }
 
 .about__text {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+  font: normal normal 400 18px/24px var(--font-family);
   margin: 0;
   padding-top: 24px;
-  max-width: 600px;  
+  max-width: 600px;
 }
 
 @media screen and (max-width: 800px) {
   .about {
-   padding: 40px 40px 61px;
+    padding: 40px 40px 61px;
   }
 
   .about__img {
@@ -58,9 +52,9 @@
     height: 232px;
     margin: 21px 32px 0 0;
     padding: 0;
-   }
+  }
 
-   .about__wrapper {
+  .about__wrapper {
     margin: 0;
   }
 
@@ -75,8 +69,8 @@
 
 @media screen and (max-width: 650px) {
   .about {
-   flex-direction: column;
-   padding: 32px 24px 128px ;
+    flex-direction: column;
+    padding: 32px 24px 128px;
   }
 
   .about__img {
@@ -91,9 +85,9 @@
 @media screen and (max-width: 400px) {
   .about {
     flex-direction: column;
-    padding: 32px 0 128px ;
-   }
-  
+    padding: 32px 0 128px;
+  }
+
   .about__img {
     height: 272px;
     width: 272px;

@@ -1,13 +1,13 @@
+@import url('../../utils/variables.css');
+
 .nav {
   display: flex;
 }
 
-.nav__link {
+.nav__link,
+.nav__link-active {
   height: 48px;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font: normal normal 500 18px/24px var(--font-family);
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -19,26 +19,11 @@
 }
 
 .nav__link-active {
-  height: 48px;
   border-bottom: 3px solid;
-  color: inherit;
-  cursor: pointer;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  margin-right: 42px;
-  z-index: 5;
 }
 
 .nav_light {
-  color: #1A1B22;
+  color: var(--color-black);
 }
 
 .border-bottom {
@@ -46,10 +31,7 @@
 }
 
 .nav__button {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font: normal normal 500 18px/24px var(--font-family);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -61,19 +43,19 @@
   width: 176px;
   height: 48px;
   cursor: pointer;
-  z-index: 5; 
+  z-index: 5;
   position: relative;
   bottom: 13px;
 }
 
 .nav__button_style_light {
-  color: #1a1b22;
-  border: 1px solid #1a1b22;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
 }
 
 .nav__button_style_dark {
-  color: #ffffff;
-  border: 1px solid #ffffff;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
 }
 
 .nav__button-user {
@@ -88,11 +70,11 @@
     font-size: 16px;
     line-height: 24px;
   }
- 
+
   .nav__link-active {
     height: 41px;
   }
- 
+
   .nav__button {
     font-size: 16px;
     line-height: 24px;
@@ -116,7 +98,7 @@
 
   .nav__link-active {
     border: none;
-    margin: 0;  
+    margin: 0;
     height: 56px;
     line-height: 56px;
   }
@@ -152,12 +134,11 @@
     align-self: flex-start;
   }
 
- 
-  .nav_light:hover{
+  .nav_light:hover {
     border: none;
     padding: 0;
   }
-  
+
   .nav__button {
     font-size: 18px;
     line-height: 24px;
@@ -168,8 +149,8 @@
   }
 
   .nav__button_style_dark {
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
     margin-bottom: 24px;
     margin-top: 22px;
   }
@@ -181,7 +162,6 @@
   .nav__button-user {
     padding: 16px 100px;
     margin-bottom: 0;
-    
   }
   .nav__logout {
     padding-left: 15px;

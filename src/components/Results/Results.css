@@ -1,3 +1,5 @@
+@import url('../../utils/variables.css');
+
 .cards-list {
   background-color: rgba(245, 246, 247, 1);
   background-size: cover;
@@ -19,14 +21,11 @@
 }
 
 .cards-list__title {
-  font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 46px;
+  font: normal normal 400 40px/46px var(--font-family-second);
   margin: 0;
   padding: 0;
   position: relative;
-  color: rgba(26, 27, 34, 1);
+  color: var(--color-black);
   margin-bottom: 64px;
 }
 
@@ -43,16 +42,13 @@
 }
 
 .show-more__button {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font: normal normal 500 18px/24px var(--font-family);
   box-sizing: border-box;
   color: rgba(26, 27, 34, 1);
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--color-white);
   border: none;
   border-radius: 100px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   padding: 20px 98px;
   margin: 64px auto 0;
   position: relative;
@@ -78,7 +74,7 @@
   }
 
   .cards-list__container {
-   max-width: 688px;
+    max-width: 688px;
   }
 
   .cards-list__title {
@@ -101,9 +97,8 @@
 
 @media screen and (max-width: 700px) {
   .cards-list {
-   padding-top: 32px;
-   padding-bottom: 24px;
-  
+    padding-top: 32px;
+    padding-bottom: 24px;
   }
 
   .cards-list__title {

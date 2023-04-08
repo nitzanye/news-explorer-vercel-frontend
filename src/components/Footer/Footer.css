@@ -1,20 +1,18 @@
+@import url('../../utils/variables.css');
+
 .footer__section {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 0;
-  padding-right: 104px;
-  padding-left: 104px;
+  padding: 0 104px;
   box-sizing: border-box;
   max-height: 80px;
 }
 
 .footer__copyright {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #b6bcbf;
+  font: normal normal 400 16px/22px var(--font-family);
+  color: var(--color-gray);
   margin: 0;
   padding-top: 32px;
   padding-bottom: 26px;
@@ -37,11 +35,8 @@
 }
 
 .footer__link {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  color: #1a1b22;
+  font: normal normal 400 18px/24px var(--font-family);
+  color: var(--color-black);
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -65,19 +60,17 @@
 
 @media screen and (max-width: 900px) {
   .footer__section {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 0 40px;
   }
 }
 
 @media screen and (max-width: 800px) {
   .footer__section {
     max-height: 64px;
-    padding-right: 40px;
-    padding-left: 40px;
   }
 
-  .footer__items {
+  .footer__items,
+  .footer__copyright {
     padding-top: 21px;
     padding-bottom: 21px;
   }
@@ -90,11 +83,6 @@
   .footer__link-last {
     margin-right: 24px;
   }
-
-  .footer__copyright {
-    padding-top: 24px;
-    padding-bottom: 18px;
-  }
 }
 
 @media screen and (max-width: 700px) {
@@ -104,12 +92,12 @@
 
   .footer__section {
     flex-direction: column-reverse;
+    max-height: 100px;
     max-height: 176px;
   }
 
   .footer__items {
-    padding-bottom: 20px;
-    padding-top: 0;
+    padding: 0;
   }
 
   .footer__links {
@@ -129,13 +117,7 @@
   }
 
   .footer__section {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .footer__items {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0 16px;
   }
 
   .footer__links {
@@ -143,7 +125,7 @@
   }
 
   .footer__copyright {
-    padding-top: 38px;
+    padding-top: 0;
     padding-bottom: 21px;
   }
 }

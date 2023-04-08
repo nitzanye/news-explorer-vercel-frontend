@@ -1,12 +1,9 @@
+@import url('../../utils/variables.css');
+
 .popup__title {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
-  color: rgba(26, 27, 34, 1);
-  margin: 0;
-  margin-top: 34px;
-  margin-left: 36px;
+  font: normal normal 900 24px/28px var(--font-family);
+  color: var(--color-black);
+  margin: 34px 0 0 36px;
   padding: 0;
 }
 
@@ -20,20 +17,15 @@
   margin-left: 36px;
   max-width: 358px;
   width: 100%;
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 .form__title {
   all: unset;
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  margin: 0;
+  font: normal normal 400 12px/15px var(--font-family-inter);
+  margin: 22px 0 9px;
   padding: 0;
-  margin-top: 22px;
-  margin-bottom: 9px;
-  color: #2F71E5;
+  color: var(--color-blue);
 }
 
 .form__title:last-of-type {
@@ -52,16 +44,13 @@
 }
 
 .form__input:focus {
-  border-bottom: 1px solid rgba(0, 0, 0, 1)
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .form__link {
   all: unset;
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: rgba(47, 113, 229, 1);
+  font: normal normal 400 18px/22px var(--font-family-inter);
+  color: var(--color-blue);
   cursor: pointer;
 }
 
@@ -89,14 +78,11 @@
 
 .button_type_submit {
   all: unset;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font: normal normal 500 18px/24px var(--font-family);
   padding: 20px 115px;
   text-align: center;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(47, 113, 229, 1);
+  color: var(--color-white);
+  background-color: var(--color-blue);
   border-radius: 100px;
   margin-bottom: 16px;
   margin-top: 39px;
@@ -108,17 +94,14 @@
 }
 
 .button_type_submit-disabled {
-  color: rgba(182, 188, 191, 1);
+  color: var(--color-gray);
   background-color: rgba(230, 232, 235, 1);
   border-radius: 100px;
   cursor: pointer;
 }
 
 .link__text {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font: normal normal 400 14px/17px var(--font-family-inter);
   margin: 0;
   padding: 0;
   margin-bottom: 28px;
@@ -127,7 +110,7 @@
 }
 
 .link__swtich-popup {
-  color: #2F71E5;
+  color: var(--color-blue);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -137,7 +120,6 @@
 }
 
 @media screen and (max-width: 530px) {
-
   .popup__title {
     width: 320px;
     margin: 16px auto 0;
@@ -146,7 +128,7 @@
 
   .popup__form {
     max-width: 320px;
-    margin: 0px auto 0px ;
+    margin: 0px auto 0px;
   }
 
   .button_type_submit {
@@ -155,7 +137,6 @@
 }
 
 @media screen and (max-width: 400px) {
-
   .popup__title {
     max-width: 288px;
     margin: 16px auto 0;
@@ -164,12 +145,12 @@
 
   .popup__form {
     max-width: 288px;
-    margin: 0px auto 0px ;
+    margin: 0px auto 0px;
   }
 
-.form__input {
-  padding-bottom: 10px;
-  padding-right: 0;
-  align-items: center;
+  .form__input {
+    padding-bottom: 10px;
+    padding-right: 0;
+    align-items: center;
   }
 }

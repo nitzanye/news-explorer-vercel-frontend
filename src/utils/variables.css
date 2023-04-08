@@ -1,0 +1,11 @@
+:root {
+  --font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  --font-family-second: 'Roboto Slab', Helvetica, Arial, sans-serif;
+  --font-family-inter: 'Inter', Helvetica, Arial, sans-serif;
+  --color-gray: #b6bcbf;
+  --color-black: #1a1b22;
+  --color-white: rgba(255, 255, 255, 1);
+  --color-blue: rgba(47, 113, 229, 1);
+  --box-shadow: 0px -1px 0px 0px rgba(209, 210, 214, 1) inset;
+  --box-shadow-second: 0px 5px 15px 0px rgba(14, 26, 57, 0.2);
+}

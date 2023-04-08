@@ -1,8 +1,11 @@
 import axios from 'axios';
 import BASE_URL from './configuration';
+import { SUCCESS_OK, SUCCESS_CREATED } from './variables';
 
 const handleResponse = (res) =>
-  res.status === 200 ? res.data : Promise.reject(`Error ${res.status}`);
+  res.status === SUCCESS_OK || SUCCESS_CREATED
+    ? res.data
+    : Promise.reject(`Error ${res.status}`);
 
 export const register = async (email, password, name) => {
   try {
