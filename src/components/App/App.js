@@ -21,9 +21,7 @@ import './App.css';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [currentName, setCurrentName] = useState(
-    localStorage.getItem('name') || ''
-  );
+  const [currentName, setCurrentName] = useState({} || '');
 
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
@@ -34,8 +32,9 @@ const App = () => {
   const [searchSubmit, setSearchSubmit] = useState(false);
 
   const [keyword, setKeyword] = useState(localStorage.getItem('keyword'));
-  const { searchResults } = localStorage;
-  const [articles, setArticles] = useState(JSON.parse(searchResults));
+  const [articles, setArticles] = useState(
+    JSON.parse(localStorage.getItem('searchResults'))
+  );
   const [savedArticles, setSavedArticles] = useState([]);
 
   const navigate = useNavigate();
@@ -52,24 +51,22 @@ const App = () => {
       getSavedArticles()
         .then((articlesList) => {
           setSavedArticles(
-            articlesList
-              .map((article) => {
-                return {
-                  _id: article._id,
-                  keyword: article.keyword,
-                  title: article.title,
-                  content: article.text,
-                  publishedAt: article.date,
-                  source: { name: article.source },
-                  url: article.link,
-                  urlToImage: article.image,
-                  owner: article.owner,
-                };
-              })
-              .reverse()
+            articlesList.map((article) => {
+              return {
+                _id: article._id,
+                keyword: article.keyword,
+                title: article.title,
+                content: article.text,
+                publishedAt: article.date,
+                source: { name: article.source },
+                url: article.link,
+                urlToImage: article.image,
+                owner: article.owner,
+              };
+            })
           );
         })
-        .catch(() => setSavedArticles([]));
+        .catch((err) => console.log(`Error.....: ${err}`));
   }, [loggedIn]);
 
   useEffect(() => {
@@ -95,7 +92,7 @@ const App = () => {
         image: article.urlToImage,
       })
         .then(() => getArticles())
-        .catch((err) => console.log(err, 'Could not save article'));
+        .catch((err) => console.log(`Error......${err}`));
     }
   };
 
@@ -106,23 +103,20 @@ const App = () => {
           articles.filter((article) => article._id !== articleId)
         );
       })
-      .catch((err) => console.log(err, 'Could not delete article'));
+      .catch((err) => console.log(`Error...${err}`));
   };
 
   useEffect(() => {
-    const checkUserToken = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          const res = await auth.checkUerToken(token);
+    const token = localStorage.getItem('token');
+    if (token) {
+      auth
+        .checkUerToken(token)
+        .then((res) => {
           setCurrentName(res.name);
           setLoggedIn(true);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    checkUserToken();
+        })
+        .catch((err) => console.log(`Error.....: ${err}`));
+    }
   }, []);
 
   const handleLogOut = () => {
@@ -145,7 +139,7 @@ const App = () => {
         setKeyword(query);
         localStorage.setItem('keyword', query);
       })
-      .catch((err) => console.log(`Something went wrong: ${err}`))
+      .catch((err) => console.log(`Error.......: ${err}`))
       .finally(() => setIsDataLoading(false));
   };
 
